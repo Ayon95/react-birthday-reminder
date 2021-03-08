@@ -8,7 +8,7 @@ function Navbar() {
 				<Link className="navbar__link" to="/">
 					Home
 				</Link>
-				<Link className="navbar__link" to="/create">
+				<Link className="navbar__link" to="/add-birthday">
 					Add birthday
 				</Link>
 			</div>
