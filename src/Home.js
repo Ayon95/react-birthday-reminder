@@ -8,7 +8,7 @@ function Home() {
 		<section className="container">
 			{error && <p>{error}</p>}
 			{isPending && <p>Loading...</p>}
-			{people && <List people={people} />}
+			{people && <List people={people} needAllBirthdays={false} />}
 		</section>
 	);
 }

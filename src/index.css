@@ -240,6 +240,7 @@ main {
 
 .person__name {
 	color: var(--clr-pink-2);
+	font-size: 1.3rem;
 }
 .person__birthday {
 	color: var(--clr-pink-2);
@@ -252,6 +253,8 @@ main {
 	padding: 3rem 4rem;
 	width: 500px;
 	margin: 5rem 0;
+	border-radius: 4px;
+	box-shadow: var(--light-shadow);
 }
 
 .form {

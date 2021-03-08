@@ -1,16 +1,47 @@
 import { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
+import useFetch from './useFetch';
 
 function Form() {
 	const [name, setName] = useState('');
 	const [month, setMonth] = useState('');
 	const [date, setDate] = useState('');
 	const [year, setYear] = useState('');
+	const [addingBirthday, setAddingBirthday] = useState(false);
+	const [error, setError] = useState(null);
+
+	function clearInputFields() {
+		setName('');
+		setMonth('');
+		setDate('');
+		setYear('');
+	}
+
+	async function handleSubmit(event) {
+		event.preventDefault();
+		try {
+			const person = { name, month, date, year };
+			setAddingBirthday(true);
+
+			await fetch('http://localhost:8000/people', {
+				method: 'POST',
+				headers: { 'Content-Type': 'application/json' },
+				body: JSON.stringify(person),
+			});
+
+			setAddingBirthday(false);
+			setError(null);
+			clearInputFields();
+		} catch (error) {
+			setAddingBirthday(false);
+			setError(error.message);
+		}
+	}
 
 	return (
 		<section className="form-container">
 			<h3 className="container__title">Add birthday</h3>
-			<form action="/data/database.json" className="form">
+			<form action="/data/database.json" className="form" onSubmit={handleSubmit}>
 				<label className="form__label">Name*</label>
 				<input
 					type="text"
@@ -41,7 +72,15 @@ function Form() {
 				<label className="form__label">Year</label>
 				<input type="text" className="form__input" value={year} onChange={(event) => setYear(event.target.value)} />
 
-				<button className="btn">Submit</button>
+				{addingBirthday ? (
+					<button disabled className="btn">
+						Adding Birthday
+					</button>
+				) : (
+					<button className="btn">Submit</button>
+				)}
+
+				{error && <p>{error}</p>}
 			</form>
 		</section>
 	);
