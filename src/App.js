@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Navbar from './Navbar.js';
 import Home from './Home.js';
 import Form from './Form.js';
+import AllBirthdays from './AllBirthdays.js';
 
 function App() {
 	return (
@@ -17,6 +18,10 @@ function App() {
 
 						<Route path="/add-birthday">
 							<Form />
+						</Route>
+
+						<Route path="/all-birthdays">
+							<AllBirthdays />
 						</Route>
 					</Switch>
 				</main>

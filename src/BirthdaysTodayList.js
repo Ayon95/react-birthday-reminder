@@ -28,7 +28,7 @@ function BirthdaysTodayList({ people }) {
 				</h3>
 			)}
 
-			<div className="persons">{template}</div>
+			{template.length === 0 ? '' : <div className="persons">{template}</div>}
 		</>
 	);
 }

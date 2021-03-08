@@ -1,6 +1,3 @@
-import React from 'react';
-import { ReactComponent as IconPerson } from './img/user.svg';
-import { ReactComponent as IconCake } from './img/birthday-cake.svg';
 import BirthdaysTodayList from './BirthdaysTodayList.js';
 import AllBirthdaysList from './AllBirthdaysList.js';
 

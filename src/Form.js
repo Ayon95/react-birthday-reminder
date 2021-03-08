@@ -57,6 +57,7 @@ function Form() {
 					className="form__input"
 					value={month}
 					required
+					placeholder="e.g. Jan"
 					onChange={(event) => setMonth(event.target.value)}
 				/>
 
@@ -66,11 +67,18 @@ function Form() {
 					className="form__input"
 					value={date}
 					required
+					placeholder="e.g. 14"
 					onChange={(event) => setDate(event.target.value)}
 				/>
 
 				<label className="form__label">Year</label>
-				<input type="text" className="form__input" value={year} onChange={(event) => setYear(event.target.value)} />
+				<input
+					type="text"
+					className="form__input"
+					value={year}
+					onChange={(event) => setYear(event.target.value)}
+					placeholder="e.g. 1996"
+				/>
 
 				{addingBirthday ? (
 					<button disabled className="btn">
