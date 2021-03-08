@@ -3,13 +3,13 @@
 		{
 			"id": 1,
 			"name": "Bertie Yates",
-			"age": 29,
+			"birthDate": "Oct 10, 1990",
 			"image": "https://res.cloudinary.com/diqqf3eq2/image/upload/v1595959131/person-2_ipcjws.jpg"
 		},
 		{
 			"id": 2,
 			"name": "Hester Hogan",
-			"age": 32,
+			"birthDate": "Mar 15, 1989",
 			"image": "https://res.cloudinary.com/diqqf3eq2/image/upload/v1595959131/person-3_rxtqvi.jpg"
 		}
 	]

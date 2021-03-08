@@ -40,7 +40,7 @@ Variables
 	--light-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 	--dark-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
 	--max-width: 1170px;
-	--fixed-width: 550px;
+	--fixed-width: 850px;
 	--clr-pink: #f28ab2;
 	--clr-pink-2: #f16da0;
 }
@@ -80,7 +80,6 @@ h4 {
 	letter-spacing: var(--spacing);
 	text-transform: capitalize;
 	line-height: 1.25;
-	margin-bottom: 0.75rem;
 }
 h1 {
 	font-size: 3rem;
@@ -94,10 +93,7 @@ h3 {
 h4 {
 	font-size: 0.875rem;
 }
-p {
-	margin-bottom: 1.25rem;
-	color: var(--clr-grey-5);
-}
+
 @media screen and (min-width: 800px) {
 	h1 {
 		font-size: 4rem;
@@ -106,7 +102,7 @@ p {
 		font-size: 2.5rem;
 	}
 	h3 {
-		font-size: 1.75rem;
+		font-size: 2rem;
 	}
 	h4 {
 		font-size: 1rem;
@@ -204,32 +200,46 @@ main {
 	padding: 1.5rem 2.5rem;
 	box-shadow: var(--dark-shadow);
 }
-.container h3 {
+.container__title {
+	text-align: center;
 	color: var(--clr-pink-2);
 	font-weight: 600;
 	margin-bottom: 2rem;
 }
 
 /* PERSON */
+
+.persons {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 3rem;
+	height: 15rem;
+}
 .person {
 	display: grid;
-	grid-template-columns: auto 1fr;
-	column-gap: 0.75rem;
+	grid-template-columns: repeat(2, max-content);
+	column-gap: 1rem;
+	row-gap: 1rem;
 	margin-bottom: 1.5rem;
+	padding: 2rem;
+	border-radius: 4px;
 	align-items: center;
+	align-content: center;
+	background-color: var(--clr-grey-9);
 }
-.person img {
-	width: 75px;
-	height: 75px;
-	object-fit: cover;
-	border-radius: 50%;
-	box-shadow: var(--light-shadow);
+
+.icon {
+	height: 1.2rem;
+	width: 1.2rem;
+	fill: var(--clr-pink-2);
 }
-.person h4 {
-	margin-bottom: 0.35rem;
+
+.person__name {
+	color: var(--clr-pink-2);
 }
-.person p {
-	margin-bottom: 0;
+.person__birthday {
+	color: var(--clr-pink-2);
 }
 
 /* FORM */

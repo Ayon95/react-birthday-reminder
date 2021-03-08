@@ -9,8 +9,8 @@ function Form() {
 
 	return (
 		<section className="container">
-			<h3>Add birthday</h3>
-			<form className="form">
+			<h3 className="container__title">Add birthday</h3>
+			<form action="/data/database.json" className="form">
 				<label className="form__label">Name*</label>
 				<input
 					type="text"
