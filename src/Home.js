@@ -1,14 +1,14 @@
-import { useState } from 'react';
 import List from './List';
-import data from './data';
+import useFetch from './useFetch.js';
 
 function Home() {
-	const [people, setPeople] = useState(data);
+	const { data: people, isPending, error } = useFetch('http://localhost:8000/people');
+	console.log(people);
 	return (
 		<section className="container">
-			<h3>{people.length} Birthdays Today</h3>
-			<List people={people} />
-			<button onClick={() => setPeople([])}>Clear All</button>
+			{error && <p>{error}</p>}
+			{isPending && <p>Loading...</p>}
+			{people && <List people={people} />}
 		</section>
 	);
 }
