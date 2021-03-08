@@ -8,7 +8,7 @@ function Form() {
 	const [year, setYear] = useState('');
 
 	return (
-		<section className="container">
+		<section className="form-container">
 			<h3 className="container__title">Add birthday</h3>
 			<form action="/data/database.json" className="form">
 				<label className="form__label">Name*</label>

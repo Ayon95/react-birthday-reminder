@@ -37,12 +37,13 @@ Variables
 	--transition: all 0.3s linear;
 	--spacing: 0.1rem;
 	--radius: 0.25rem;
-	--light-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-	--dark-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+	--light-shadow: 0 1.5rem 3rem rgba(0, 0, 0, 0.15);
+	--dark-shadow: 0 1.5rem 3rem rgba(0, 0, 0, 0.3);
 	--max-width: 1170px;
 	--fixed-width: 850px;
 	--clr-pink: #f28ab2;
 	--clr-pink-2: #f16da0;
+	--clr-pink-3: #f14e8d;
 }
 /*
 =============== 
@@ -195,14 +196,15 @@ main {
 	width: 90vw;
 	margin: 5rem 0;
 	max-width: var(--fixed-width);
-	background: var(--clr-white);
+	background-color: rgba(231, 231, 231, 0.5);
+	backdrop-filter: blur(3px);
 	border-radius: var(--radius);
 	padding: 1.5rem 2.5rem;
-	box-shadow: var(--dark-shadow);
+	box-shadow: var(--light-shadow);
 }
 .container__title {
 	text-align: center;
-	color: var(--clr-pink-2);
+	color: var(--clr-pink-3);
 	font-weight: 600;
 	margin-bottom: 2rem;
 }
@@ -227,6 +229,7 @@ main {
 	align-items: center;
 	align-content: center;
 	background-color: var(--clr-grey-9);
+	box-shadow: var(--light-shadow);
 }
 
 .icon {
@@ -243,6 +246,13 @@ main {
 }
 
 /* FORM */
+
+.form-container {
+	background-color: rgba(231, 231, 231, 0.5);
+	padding: 3rem 4rem;
+	width: 500px;
+	margin: 5rem 0;
+}
 
 .form {
 	display: flex;
@@ -261,9 +271,11 @@ main {
 	font-family: 'Quicksand';
 	font-size: 1rem;
 	font-weight: 500;
-	caret-color: var(--clr-pink-2);
+	border: none;
+	background-color: rgba(255, 255, 255, 0.45);
+	caret-color: var(--clr-pink-3);
 }
 
 .form__input:focus {
-	outline-color: var(--clr-pink-2);
+	outline-color: var(--clr-pink-3);
 }
