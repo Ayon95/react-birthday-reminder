@@ -44,7 +44,7 @@ function Form() {
 	return (
 		<div className="form-container">
 			<h3 className="container__title">Add birthday</h3>
-			<form action="/data/database.json" className="form" onSubmit={handleSubmit}>
+			<form className="form" onSubmit={handleSubmit}>
 				<label className="form__label">Name*</label>
 				<input
 					type="text"

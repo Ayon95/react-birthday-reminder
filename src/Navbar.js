@@ -9,12 +9,14 @@ function Navbar() {
 					Home
 				</Link>
 
-				<Link className="navbar__link" to="/add-birthday">
-					Add birthday
-				</Link>
-
 				<Link className="navbar__link" to="/all-birthdays">
 					All birthdays
+				</Link>
+
+				<span className="separator">|</span>
+
+				<Link className="navbar__link" to="/add-birthday">
+					Add birthday
 				</Link>
 			</div>
 		</nav>

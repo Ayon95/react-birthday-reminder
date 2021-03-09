@@ -120,6 +120,30 @@ h4 {
 		line-height: 1;
 	}
 }
+
+/* LOADING SPINNER */
+
+@keyframes rotate {
+	0% {
+		transform: rotate(0);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
+.spinner-container {
+	margin: 2rem auto;
+	text-align: center;
+}
+
+.icon-spinner {
+	height: 4rem;
+	width: 4rem;
+	fill: var(--clr-pink-3);
+	animation: rotate 2s infinite linear;
+}
+
 /*  global classes */
 
 /* section */
@@ -140,6 +164,13 @@ main {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+}
+
+.error-message {
+	font-family: 'Quicksand';
+	font-size: 3rem;
+	color: var(--clr-pink-3);
+	text-align: center;
 }
 
 .btn {
@@ -189,6 +220,11 @@ main {
 }
 
 .navbar__link:not(:last-child) {
+	margin-right: 1.5rem;
+}
+
+.separator {
+	color: var(--clr-pink-3);
 	margin-right: 1.5rem;
 }
 
