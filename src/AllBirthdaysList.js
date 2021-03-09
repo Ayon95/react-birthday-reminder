@@ -1,8 +1,8 @@
 import { ReactComponent as IconPerson } from './img/user.svg';
 import { ReactComponent as IconCake } from './img/birthday-cake.svg';
 
-function AllBirthdaysList({ people }) {
-	const template = people.map((person) => {
+function AllBirthdaysList({ currentPeople }) {
+	const template = currentPeople.map((person) => {
 		return (
 			<div key={person.id} className="person">
 				<IconPerson className="icon" />
@@ -13,12 +13,7 @@ function AllBirthdaysList({ people }) {
 		);
 	});
 
-	return (
-		<>
-			<h3 className="container__title">You have {template.length} birthdays saved</h3>
-			<div className="persons">{template}</div>
-		</>
-	);
+	return <div className="persons">{template}</div>;
 }
 
 export default AllBirthdaysList;

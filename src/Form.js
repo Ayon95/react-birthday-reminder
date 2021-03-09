@@ -1,6 +1,5 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import useFetch from './useFetch';
 
 function Form() {
 	const [name, setName] = useState('');
@@ -43,7 +42,7 @@ function Form() {
 
 	return (
 		<div className="form-container">
-			<h3 className="container__title">Add birthday</h3>
+			<h3 className="container__title form-container__title">Add birthday</h3>
 			<form className="form" onSubmit={handleSubmit}>
 				<label className="form__label">Name*</label>
 				<input

@@ -20,8 +20,8 @@ function useFetch(url) {
 			if (error.name === 'AbortError') return;
 			// if the fetch was aborted then just return
 			else {
-				setIsPending(false);
 				setError(error.message);
+				setIsPending(false);
 			}
 		}
 	}

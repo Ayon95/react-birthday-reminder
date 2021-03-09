@@ -1,8 +1,8 @@
 import List from './List';
 import useFetch from './useFetch.js';
 import { ReactComponent as LoadingSpinner } from './img/reload.svg';
-function Home() {
-	const { data: people, isPending, error } = useFetch('http://localhost:8000/people');
+
+function Home({ people, isPending, error }) {
 	return (
 		<div className="container">
 			{error && <p className="error-message">{error}</p>}
