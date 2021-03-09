@@ -10,6 +10,8 @@ function Form() {
 	const [addingBirthday, setAddingBirthday] = useState(false);
 	const [error, setError] = useState(null);
 
+	const history = useHistory();
+
 	function clearInputFields() {
 		setName('');
 		setMonth('');
@@ -32,6 +34,7 @@ function Form() {
 			setAddingBirthday(false);
 			setError(null);
 			clearInputFields();
+			history.push('/all-birthdays');
 		} catch (error) {
 			setAddingBirthday(false);
 			setError(error.message);
@@ -39,7 +42,7 @@ function Form() {
 	}
 
 	return (
-		<section className="form-container">
+		<div className="form-container">
 			<h3 className="container__title">Add birthday</h3>
 			<form action="/data/database.json" className="form" onSubmit={handleSubmit}>
 				<label className="form__label">Name*</label>
@@ -90,7 +93,7 @@ function Form() {
 
 				{error && <p>{error}</p>}
 			</form>
-		</section>
+		</div>
 	);
 }
 
