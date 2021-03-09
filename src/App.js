@@ -3,6 +3,7 @@ import Navbar from './Navbar.js';
 import Home from './Home.js';
 import Form from './Form.js';
 import AllBirthdays from './AllBirthdays.js';
+import UpcomingBirthdays from './UpcomingBirthdays.js';
 
 function App() {
 	return (
@@ -22,6 +23,10 @@ function App() {
 
 						<Route path="/all-birthdays">
 							<AllBirthdays />
+						</Route>
+
+						<Route path="/upcoming-birthdays">
+							<UpcomingBirthdays />
 						</Route>
 					</Switch>
 				</main>

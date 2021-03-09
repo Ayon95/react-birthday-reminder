@@ -3,6 +3,7 @@ import { ReactComponent as IconCake } from './img/birthday-cake.svg';
 
 function BirthdaysTodayList({ people }) {
 	const today = String(new Date().getDate());
+	console.log(today);
 	const currentMonth = new Date().toLocaleString('default', { month: 'short' });
 
 	// generating filtered template (includes people who have birthdays today)

@@ -1,9 +1,8 @@
-import List from './List';
 import UpcomingBirthdaysList from './UpcomingBirthdaysList';
 import useFetch from './useFetch.js';
 import { ReactComponent as LoadingSpinner } from './img/reload.svg';
 
-function Home() {
+function UpcomingBirthdays() {
 	// loading data
 	const { data: people, isPending, error } = useFetch('http://localhost:8000/people');
 	return (
@@ -14,9 +13,9 @@ function Home() {
 					<LoadingSpinner className="icon-spinner" />
 				</div>
 			)}
-			{people && <List people={people} needAllBirthdays={false} />}
+			{people && <UpcomingBirthdaysList people={people} />}
 		</div>
 	);
 }
 
-export default Home;
+export default UpcomingBirthdays;

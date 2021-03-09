@@ -9,6 +9,10 @@ function Navbar() {
 					Home
 				</Link>
 
+				<Link className="navbar__link" to="/upcoming-birthdays">
+					Upcoming birthdays
+				</Link>
+
 				<Link className="navbar__link" to="/all-birthdays">
 					All birthdays
 				</Link>
