@@ -242,6 +242,15 @@ main {
 	fill: var(--clr-pink-3);
 }
 
+.icon--action {
+	cursor: pointer;
+	justify-self: end;
+}
+
+.icon--action:hover {
+	fill: var(--clr-pink-2);
+}
+
 .person__name {
 	color: var(--clr-pink-3);
 	font-size: 2.2rem;
@@ -316,4 +325,8 @@ main {
 	font-size: 1.5rem;
 	font-weight: 500;
 	color: var(--clr-pink-3);
+}
+
+.pg-buttons__button:hover {
+	background-color: var(--clr-grey-8);
 }

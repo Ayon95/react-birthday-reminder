@@ -4,6 +4,7 @@ import Navbar from './Navbar.js';
 import Home from './Home.js';
 import Form from './Form.js';
 import AllBirthdays from './AllBirthdays.js';
+import { useEffect, useState } from 'react';
 
 function App() {
 	// loading data

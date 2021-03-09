@@ -1,5 +1,4 @@
 import List from './List';
-import useFetch from './useFetch.js';
 import { ReactComponent as LoadingSpinner } from './img/reload.svg';
 
 function Home({ people, isPending, error }) {

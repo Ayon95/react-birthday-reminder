@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useHistory } from 'react-router-dom';
 
 function Form() {
@@ -10,6 +10,7 @@ function Form() {
 	const [error, setError] = useState(null);
 
 	const history = useHistory();
+	const nameInputContainer = useRef(null);
 
 	function clearInputFields() {
 		setName('');
@@ -17,6 +18,9 @@ function Form() {
 		setDate('');
 		setYear('');
 	}
+
+	// focus on the name field when the component first renders
+	useEffect(() => nameInputContainer.current.focus(), []);
 
 	async function handleSubmit(event) {
 		event.preventDefault();
@@ -51,6 +55,7 @@ function Form() {
 					value={name}
 					required
 					onChange={(event) => setName(event.target.value)}
+					ref={nameInputContainer}
 				/>
 
 				<label className="form__label">Month*</label>

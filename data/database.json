@@ -1,32 +1,32 @@
 {
-	"people": [
-		{
-			"name": "Mushfiq Rahman",
-			"month": "Oct",
-			"date": "14",
-			"year": "1995",
-			"id": 3
-		},
-		{
-			"name": "Nafisa Tabassum",
-			"month": "Jun",
-			"date": "5",
-			"year": "1996",
-			"id": 8
-		},
-		{
-			"name": "Maliat Rahman",
-			"month": "Jan",
-			"date": "18",
-			"year": "2002",
-			"id": 9
-		},
-		{
-			"name": "Tahiat Rahman",
-			"month": "Jan",
-			"date": "18",
-			"year": "2002",
-			"id": 10
-		}
-	]
+  "people": [
+    {
+      "name": "Mushfiq Rahman",
+      "month": "Oct",
+      "date": "14",
+      "year": "1995",
+      "id": 3
+    },
+    {
+      "name": "Nafisa Tabassum",
+      "month": "Jun",
+      "date": "5",
+      "year": "1996",
+      "id": 8
+    },
+    {
+      "name": "Maliat Rahman",
+      "month": "Jan",
+      "date": "18",
+      "year": "2002",
+      "id": 9
+    },
+    {
+      "name": "Tahiat Rahman",
+      "month": "Jan",
+      "date": "18",
+      "year": "2002",
+      "id": 10
+    }
+  ]
 }
