@@ -1,9 +1,13 @@
 import List from './List';
 import Pagination from './Pagination.js';
 import { useState, useEffect } from 'react';
+import useFetch from './useFetch.js';
 import { ReactComponent as LoadingSpinner } from './img/reload.svg';
 
-function AllBirthdays({ people, isPending, error }) {
+function AllBirthdays() {
+	// loading data
+	const { data: people, isPending, error } = useFetch('http://localhost:8000/people');
+	// state variables
 	const [currentPage, setCurrentPage] = useState(1);
 	const [peoplePerPage] = useState(6);
 	const [peopleList, setPeopleList] = useState(people);

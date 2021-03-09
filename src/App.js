@@ -1,14 +1,10 @@
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import useFetch from './useFetch.js';
 import Navbar from './Navbar.js';
 import Home from './Home.js';
 import Form from './Form.js';
 import AllBirthdays from './AllBirthdays.js';
-import { useEffect, useState } from 'react';
 
 function App() {
-	// loading data
-	const { data: people, isPending, error } = useFetch('http://localhost:8000/people');
 	return (
 		<Router>
 			<div className="App">
@@ -17,7 +13,7 @@ function App() {
 				<main>
 					<Switch>
 						<Route exact path="/">
-							<Home people={people} isPending={isPending} error={error} />
+							<Home />
 						</Route>
 
 						<Route path="/add-birthday">
@@ -25,7 +21,7 @@ function App() {
 						</Route>
 
 						<Route path="/all-birthdays">
-							<AllBirthdays people={people} isPending={isPending} error={error} />
+							<AllBirthdays />
 						</Route>
 					</Switch>
 				</main>
