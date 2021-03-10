@@ -14,8 +14,8 @@ function UpcomingBirthdaysList({ people }) {
 		.filter(
 			(person) =>
 				person.month === currentMonth &&
-				Math.abs(Number.parseFloat(person.date) - today) > 0 &&
-				Math.abs(Number.parseFloat(person.date) - today) <= 7
+				Number.parseFloat(person.date) - today > 0 &&
+				Number.parseFloat(person.date) - today <= 7
 		)
 		.map((person) => {
 			return (
