@@ -25,6 +25,7 @@ function Navbar() {
 
 				<Link className="navbar__link" to="/upcoming-birthdays">
 					Upcoming birthdays
+					<span className="notification">3</span>
 				</Link>
 
 				<Link className="navbar__link" to="/all-birthdays">

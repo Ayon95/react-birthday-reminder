@@ -27,6 +27,7 @@ function UpcomingBirthdaysList({ people }) {
 				</div>
 			);
 		});
+
 	return (
 		<>
 			{template.length === 0 ? (

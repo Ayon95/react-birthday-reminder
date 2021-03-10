@@ -1,4 +1,4 @@
-import UpcomingBirthdaysList from './UpcomingBirthdaysList';
+import UpcomingBirthdaysList from './UpcomingBirthdaysList.js';
 import useFetch from './useFetch.js';
 import { ReactComponent as LoadingSpinner } from './img/reload.svg';
 
