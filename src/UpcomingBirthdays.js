@@ -1,10 +1,11 @@
 import UpcomingBirthdaysList from './UpcomingBirthdaysList.js';
+import { useContext } from 'react';
+import { UpcomingBirthdaysContext } from './UpcomingBirthdaysContext.js';
 import useFetch from './useFetch.js';
 import { ReactComponent as LoadingSpinner } from './img/reload.svg';
 
 function UpcomingBirthdays() {
-	// loading data
-	const { data: people, isPending, error } = useFetch('http://localhost:8000/people');
+	const { peopleFiltered, isPending, error } = useContext(UpcomingBirthdaysContext);
 	return (
 		<div className="container">
 			{error && <p className="error-message">{error}</p>}
@@ -13,7 +14,7 @@ function UpcomingBirthdays() {
 					<LoadingSpinner className="icon-spinner" />
 				</div>
 			)}
-			{people && <UpcomingBirthdaysList people={people} />}
+			{peopleFiltered && <UpcomingBirthdaysList peopleFiltered={peopleFiltered} />}
 		</div>
 	);
 }

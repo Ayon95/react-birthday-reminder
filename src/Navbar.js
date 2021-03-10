@@ -1,6 +1,9 @@
+import { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { UpcomingBirthdaysContext } from './UpcomingBirthdaysContext';
 
 function Navbar() {
+	const { peopleFiltered } = useContext(UpcomingBirthdaysContext);
 	function removeActiveLinkStyling() {
 		const allLinks = Array.from(document.querySelectorAll('.navbar__link'));
 		// find the link that contains current-link class, and remove the class from that link
@@ -25,7 +28,7 @@ function Navbar() {
 
 				<Link className="navbar__link" to="/upcoming-birthdays">
 					Upcoming birthdays
-					<span className="notification">3</span>
+					<span className="notification">{peopleFiltered?.length}</span>
 				</Link>
 
 				<Link className="navbar__link" to="/all-birthdays">

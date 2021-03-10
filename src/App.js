@@ -4,12 +4,15 @@ import Home from './Home.js';
 import Form from './Form.js';
 import AllBirthdays from './AllBirthdays.js';
 import UpcomingBirthdays from './UpcomingBirthdays.js';
+import UpcomingBirthdaysContextProvider from './UpcomingBirthdaysContext';
 
 function App() {
 	return (
 		<Router>
 			<div className="App">
-				<Navbar />
+				<UpcomingBirthdaysContextProvider>
+					<Navbar />
+				</UpcomingBirthdaysContextProvider>
 
 				<main>
 					<Switch>
@@ -26,7 +29,9 @@ function App() {
 						</Route>
 
 						<Route path="/upcoming-birthdays">
-							<UpcomingBirthdays />
+							<UpcomingBirthdaysContextProvider>
+								<UpcomingBirthdays />
+							</UpcomingBirthdaysContextProvider>
 						</Route>
 					</Switch>
 				</main>
