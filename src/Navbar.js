@@ -1,14 +1,18 @@
 import { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { GlobalContext } from './GlobalContext';
 import { manageActiveLinkStyling } from './helpers.js';
+import { useEffect } from 'react';
 
 function Navbar() {
 	const { peopleUpcomingBirthdays } = useContext(GlobalContext);
+	const currentLocation = useLocation();
+	// want to call this function whenever the current location changes
+	useEffect(manageActiveLinkStyling, [currentLocation]);
 	return (
 		<nav className="navbar">
 			<h1>Birthday Reminder</h1>
-			<div className="navbar__links" onClick={manageActiveLinkStyling}>
+			<div className="navbar__links">
 				<Link className="navbar__link current-link" to="/">
 					Home
 				</Link>

@@ -24,13 +24,13 @@ function Form({ formType, formTitle }) {
 		setYear('');
 	}
 
+	// focus on the name field whenever formType changes
+	useEffect(() => nameInputContainer.current.focus(), [formType]);
+
 	// clear all input fields at the beginning (in case the user goes from the edit form to the add form without editing anything)
 	useEffect(() => {
 		if (formType === 'add') clearInputFields();
 	}, [formType]);
-
-	// focus on the name field when the component first renders
-	useEffect(() => nameInputContainer.current.focus(), []);
 
 	// need to load data and fill the input fields with existing data when this component is rendered (when the user wants to edit a birthday)
 	useEffect(() => {

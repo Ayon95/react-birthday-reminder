@@ -25,7 +25,6 @@ function AllBirthdays() {
 
 	// getting current people (only the items of the current page)
 	const currentPeople = people?.slice(startIndex, endIndex);
-	console.log(currentPeople);
 
 	// paginate function will set the current page; it will change page
 	function paginate(pageNumber) {
