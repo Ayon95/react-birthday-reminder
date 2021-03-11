@@ -1,10 +1,10 @@
 import { useContext } from 'react';
 import { Link } from 'react-router-dom';
-import { UpcomingBirthdaysContext } from './UpcomingBirthdaysContext';
+import { GlobalContext } from './GlobalContext';
 import { manageActiveLinkStyling } from './helpers.js';
 
 function Navbar() {
-	const { peopleFiltered } = useContext(UpcomingBirthdaysContext);
+	const { peopleUpcomingBirthdays } = useContext(GlobalContext);
 	return (
 		<nav className="navbar">
 			<h1>Birthday Reminder</h1>
@@ -15,7 +15,7 @@ function Navbar() {
 
 				<Link className="navbar__link" to="/upcoming-birthdays">
 					Upcoming birthdays
-					<span className="notification">{peopleFiltered?.length}</span>
+					<span className="notification">{peopleUpcomingBirthdays?.length}</span>
 				</Link>
 
 				<Link className="navbar__link" to="/all-birthdays">

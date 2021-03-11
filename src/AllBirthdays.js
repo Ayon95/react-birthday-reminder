@@ -7,7 +7,6 @@ import { GlobalContext } from './GlobalContext.js';
 function AllBirthdays() {
 	// loading data
 	const { people, isPending, error, deletePerson } = useContext(GlobalContext);
-	console.log(people);
 	// state variables
 	const [currentPage, setCurrentPage] = useState(1);
 	const [peoplePerPage] = useState(6);

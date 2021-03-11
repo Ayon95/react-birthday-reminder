@@ -1,8 +1,8 @@
 import { ReactComponent as IconPerson } from './img/user.svg';
 import { ReactComponent as IconCake } from './img/birthday-cake.svg';
 
-function UpcomingBirthdaysList({ peopleFiltered }) {
-	const template = peopleFiltered.map((person) => {
+function UpcomingBirthdaysList({ peopleUpcomingBirthdays }) {
+	const template = peopleUpcomingBirthdays.map((person) => {
 		return (
 			<div key={person.id} className="person">
 				<IconPerson className="icon" />
