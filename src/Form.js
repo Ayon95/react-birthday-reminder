@@ -1,10 +1,11 @@
 import { useState, useEffect, useRef, useContext } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
 import { GlobalContext } from './GlobalContext.js';
 import { v4 } from 'uuid';
 
-function Form() {
-	const { addPerson } = useContext(GlobalContext);
+function Form({ formType, formTitle }) {
+	const { addPerson, editPerson } = useContext(GlobalContext);
+	const { id } = useParams();
 	// state variables
 	const [name, setName] = useState('');
 	const [month, setMonth] = useState('');
@@ -23,21 +24,56 @@ function Form() {
 		setYear('');
 	}
 
+	// clear all input fields at the beginning (in case the user goes from the edit form to the add form without editing anything)
+	useEffect(() => {
+		if (formType === 'add') clearInputFields();
+	}, [formType]);
+
 	// focus on the name field when the component first renders
 	useEffect(() => nameInputContainer.current.focus(), []);
+
+	// need to load data and fill the input fields with existing data when this component is rendered (when the user wants to edit a birthday)
+	useEffect(() => {
+		if (formType === 'edit') {
+			(async () => {
+				const response = await fetch(`http://localhost:8000/people/${id}`);
+				const person = await response.json();
+
+				setName(person.name);
+				setMonth(person.month);
+				setDate(person.date);
+				setYear(person.year);
+			})();
+		}
+		return null;
+	}, [formType]);
 
 	async function handleSubmit(event) {
 		event.preventDefault();
 		try {
-			const person = { id: v4(), name, month, date, year };
-			addPerson(person);
-
 			setAddingBirthday(true);
-			await fetch('http://localhost:8000/people', {
-				method: 'POST',
-				headers: { 'Content-Type': 'application/json' },
-				body: JSON.stringify(person),
-			});
+
+			if (formType === 'add') {
+				const person = { id: v4(), name, month, date, year };
+				addPerson(person);
+
+				await fetch('http://localhost:8000/people', {
+					method: 'POST',
+					headers: { 'Content-Type': 'application/json' },
+					body: JSON.stringify(person),
+				});
+			}
+			if (formType === 'edit') {
+				const newPerson = { id, name, month, date, year };
+				editPerson(id, newPerson);
+
+				await fetch(`http://localhost:8000/people/${id}`, {
+					method: 'PUT',
+					headers: { 'Content-Type': 'application/json' },
+					body: JSON.stringify(newPerson),
+				});
+			}
+
 			setAddingBirthday(false);
 
 			setError(null);
@@ -51,7 +87,7 @@ function Form() {
 
 	return (
 		<div className="form-container">
-			<h3 className="container__title form-container__title">Add birthday</h3>
+			<h3 className="container__title form-container__title">{formTitle}</h3>
 			<form className="form" onSubmit={handleSubmit}>
 				<label className="form__label">Name*</label>
 				<input
