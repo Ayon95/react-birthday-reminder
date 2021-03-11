@@ -1,4 +1,4 @@
-import List from './List';
+import AllBirthdaysList from './AllBirthdaysList';
 import Pagination from './Pagination.js';
 import { useState, useContext } from 'react';
 import { ReactComponent as LoadingSpinner } from './img/reload.svg';
@@ -49,7 +49,7 @@ function AllBirthdays() {
 			{people && (
 				<>
 					<h3 className="container__title">You have {people.length} birthdays saved</h3>
-					<List currentPeople={currentPeople} needAllBirthdays={true} handleDelete={handleDelete} />
+					<AllBirthdaysList currentPeople={currentPeople} handleDelete={handleDelete} />
 					<Pagination peoplePerPage={peoplePerPage} totalNumPeople={people.length} paginate={paginate} />
 				</>
 			)}

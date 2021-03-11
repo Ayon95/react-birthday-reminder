@@ -1,15 +1,9 @@
 import Birthday from './Birthday.js';
 
-function BirthdaysTodayList({ people }) {
-	const today = String(new Date().getDate());
-	const currentMonth = new Date().toLocaleString('default', { month: 'short' });
-
-	// generating filtered template (includes people who have birthdays today)
-	const template = people
-		.filter((person) => person.date === today && person.month === currentMonth)
-		.map((person) => {
-			return <Birthday key={person.id} person={person} addedFunctionality={false} />;
-		});
+function BirthdaysTodayList({ peopleBirthdaysToday }) {
+	const template = peopleBirthdaysToday.map((person) => {
+		return <Birthday key={person.id} person={person} addedFunctionality={false} />;
+	});
 	return (
 		<>
 			{template.length === 0 ? (

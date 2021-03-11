@@ -49,7 +49,22 @@ function GlobalContextProvider(props) {
 			Number.parseFloat(person.date) - today <= 7
 	);
 
-	const value = { people, isPending, error, addPerson, deletePerson, editPerson, peopleUpcomingBirthdays };
+	// filtered list with people who have birthdays today
+	const peopleBirthdaysToday = people?.filter(
+		(person) => person.date === String(today) && person.month === currentMonth
+	);
+	console.log(peopleBirthdaysToday);
+
+	const value = {
+		people,
+		isPending,
+		error,
+		addPerson,
+		deletePerson,
+		editPerson,
+		peopleUpcomingBirthdays,
+		peopleBirthdaysToday,
+	};
 
 	return <GlobalContext.Provider value={value}>{props.children}</GlobalContext.Provider>;
 }

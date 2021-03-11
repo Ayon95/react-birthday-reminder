@@ -1,11 +1,11 @@
-import List from './List';
+import BirthdaysTodayList from './BirthdaysTodayList';
 import { ReactComponent as LoadingSpinner } from './img/reload.svg';
 import { GlobalContext } from './GlobalContext.js';
 import { useContext } from 'react';
 
 function Home() {
 	// loading data
-	const { people, isPending, error } = useContext(GlobalContext);
+	const { peopleBirthdaysToday, isPending, error } = useContext(GlobalContext);
 	return (
 		<div className="container">
 			{error && <p className="error-message">{error}</p>}
@@ -14,7 +14,7 @@ function Home() {
 					<LoadingSpinner className="icon-spinner" />
 				</div>
 			)}
-			{people && <List people={people} needAllBirthdays={false} />}
+			{peopleBirthdaysToday && <BirthdaysTodayList peopleBirthdaysToday={peopleBirthdaysToday} />}
 		</div>
 	);
 }
