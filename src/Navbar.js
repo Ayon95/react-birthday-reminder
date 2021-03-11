@@ -3,6 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { GlobalContext } from './GlobalContext';
 import { manageActiveLinkStyling } from './helpers.js';
 import { useEffect } from 'react';
+import { ReactComponent as IconCake } from './img/birthday-cake.svg';
 
 function Navbar() {
 	const { peopleUpcomingBirthdays } = useContext(GlobalContext);
@@ -18,7 +19,7 @@ function Navbar() {
 				</Link>
 
 				<Link className="navbar__link" to="/upcoming-birthdays">
-					Upcoming birthdays
+					Upcoming <IconCake className="icon icon--navbar" />
 					{peopleUpcomingBirthdays?.length === 0 ? (
 						''
 					) : (
@@ -27,13 +28,13 @@ function Navbar() {
 				</Link>
 
 				<Link className="navbar__link" to="/all-birthdays">
-					All birthdays
+					All <IconCake className="icon icon--navbar" />
 				</Link>
 
 				<span className="separator">|</span>
 
 				<Link className="navbar__link" to="/add-birthday">
-					Add birthday
+					Add <IconCake className="icon icon--navbar" />
 				</Link>
 			</div>
 		</nav>

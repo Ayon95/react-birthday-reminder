@@ -177,7 +177,7 @@ main {
 
 .navbar {
 	background-color: var(--clr-grey-9);
-	padding: 1rem 4rem;
+	padding: 1rem 6rem;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
@@ -202,12 +202,12 @@ main {
 }
 
 .navbar__link:not(:last-child) {
-	margin-right: 3rem;
+	margin-right: 3.5rem;
 }
 
 .separator {
 	color: var(--clr-pink-3);
-	margin-right: 3rem;
+	margin-right: 3.5rem;
 	font-size: 1.5rem;
 }
 
@@ -282,6 +282,12 @@ main {
 	height: 2rem;
 	width: 2rem;
 	fill: var(--clr-pink-3);
+}
+
+.icon--navbar {
+	height: 1.5rem;
+	width: 1.5rem;
+	margin-left: 0.4rem;
 }
 
 .icon--action {
