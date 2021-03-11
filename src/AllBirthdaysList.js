@@ -2,6 +2,7 @@ import { ReactComponent as IconPerson } from './img/user.svg';
 import { ReactComponent as IconCake } from './img/birthday-cake.svg';
 import { ReactComponent as IconDelete } from './img/rubbish-bin.svg';
 import { ReactComponent as IconEdit } from './img/edit.svg';
+import { Link } from 'react-router-dom';
 
 function AllBirthdaysList({ currentPeople, handleDelete }) {
 	const template = currentPeople.map((person) => {
@@ -13,7 +14,9 @@ function AllBirthdaysList({ currentPeople, handleDelete }) {
 				<IconCake className="icon" />
 				<p className="person__birthday">{`${person.month} ${person.date}, ${person.year}`} </p>
 
-				<IconEdit className="icon icon--action" />
+				<Link to={`/edit-birthday/${person.id}`}>
+					<IconEdit className="icon icon--action" />
+				</Link>
 				<IconDelete className="icon icon--action" onClick={() => handleDelete(person.id)} />
 			</div>
 		);

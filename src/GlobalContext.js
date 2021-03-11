@@ -15,7 +15,6 @@ function GlobalContextProvider(props) {
 	useEffect will call setPeople and people data will be updated with the data that was loaded.
 	We are using data as a dependency here, so that whenever data changes, people state variable will be updated */
 	useEffect(() => setPeople(data), [data]);
-	console.log(people);
 
 	function addPerson(person) {
 		setPeople([...people, person]);
@@ -23,6 +22,19 @@ function GlobalContextProvider(props) {
 
 	function deletePerson(id) {
 		setPeople(people.filter((person) => person.id !== id));
+	}
+
+	/* this function will take the id of the person that we want to replace, and the person (with edited data) to replace with
+	The new person will replace the old person. The new person will have the same id as the old person, since
+	it will basically occupy the same spot in the database as the old person */
+	function editPerson(id, newPerson) {
+		const personToReplace = people.find((person) => person.id === id);
+		const newPeopleList = [
+			...people.slice(0, people.indexOf(personToReplace)),
+			newPerson,
+			...people.slice(people.indexOf(personToReplace) + 1),
+		];
+		setPeople(newPeopleList);
 	}
 
 	// generating filtered list if people is not null (includes people who have birthdays coming up in 7 days)
@@ -37,7 +49,7 @@ function GlobalContextProvider(props) {
 			Number.parseFloat(person.date) - today <= 7
 	);
 
-	const value = { people, isPending, error, addPerson, deletePerson, peopleUpcomingBirthdays };
+	const value = { people, isPending, error, addPerson, deletePerson, editPerson, peopleUpcomingBirthdays };
 
 	return <GlobalContext.Provider value={value}>{props.children}</GlobalContext.Provider>;
 }

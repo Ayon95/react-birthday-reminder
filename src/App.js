@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Redirect, Route, Switch } from 'react-router-d
 import Navbar from './Navbar.js';
 import Home from './Home.js';
 import Form from './Form.js';
+import FormEdit from './FormEdit.js';
 import AllBirthdays from './AllBirthdays.js';
 import UpcomingBirthdays from './UpcomingBirthdays.js';
 import GlobalContextProvider from './GlobalContext.js';
@@ -21,6 +22,10 @@ function App() {
 
 							<Route path="/add-birthday">
 								<Form />
+							</Route>
+
+							<Route path="/edit-birthday/:id">
+								<FormEdit />
 							</Route>
 
 							<Route path="/all-birthdays">
