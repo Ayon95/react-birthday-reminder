@@ -139,10 +139,11 @@ h4 {
 } */
 
 main {
-	height: calc(100vh - 2rem);
+	height: 110vh;
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	padding: 2rem;
 }
 
 .error-message {
@@ -241,7 +242,7 @@ main {
 /* CONTAINER */
 
 .container {
-	height: 70vh;
+	height: 75vh;
 	padding: 1.5rem 3rem;
 	display: flex;
 	flex-direction: column;
@@ -257,7 +258,7 @@ main {
 /* PERSON */
 
 .persons {
-	margin: 3rem 0;
+	margin: 3rem;
 	display: grid;
 	grid-template-columns: repeat(2, max-content);
 	justify-content: center;
@@ -359,6 +360,7 @@ main {
 }
 
 .pg-buttons__button {
+	position: relative; /* for positioning its before pseudo-element */
 	background-color: var(--clr-grey-9);
 	padding: 0.5rem 1.3rem;
 	border-radius: 4px;
@@ -370,4 +372,16 @@ main {
 
 .pg-buttons__button:hover {
 	background-color: var(--clr-grey-8);
+}
+
+.current-pg-button::before {
+	position: absolute;
+	content: '';
+	display: inline-block;
+	height: 4px;
+	width: 100%;
+	top: 3.7rem;
+	left: 0;
+	border-radius: 4px;
+	background-color: currentColor;
 }

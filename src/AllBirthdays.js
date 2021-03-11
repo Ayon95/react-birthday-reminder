@@ -11,43 +11,21 @@ function AllBirthdays() {
 	const [currentPage, setCurrentPage] = useState(1);
 	const [peoplePerPage] = useState(6);
 
-	// show error message if there was a problem fetching data
-	if (error) {
-		return (
-			<div className="container">
-				<p className="error-message">{error}</p>
-			</div>
-		);
-	}
-
-	// show loading spinner while fetching data
-	if (isPending) {
-		return (
-			<div className="container">
-				<div className="spinner-container">
-					<LoadingSpinner className="icon-spinner" />
-				</div>
-			</div>
-		);
-	}
-
 	// this function will handle deleting a person
 	async function handleDelete(id) {
 		// making the DELETE request
 		await fetch(`http://localhost:8000/people/${id}`, { method: 'DELETE' });
-		// updating peopleList state variable; remove the deleted person from the list
+		// updating people list; remove the deleted person from the list
 		deletePerson(id);
-		// setPeopleList(people.filter((person) => person.id !== id));
 	}
-
-	// we need to make sure that people data is loaded before we use it
 
 	// start and end indices
 	const endIndex = currentPage * peoplePerPage;
 	const startIndex = endIndex - peoplePerPage;
 
 	// getting current people (only the items of the current page)
-	const currentPeople = people.slice(startIndex, endIndex);
+	const currentPeople = people?.slice(startIndex, endIndex);
+	console.log(currentPeople);
 
 	// paginate function will set the current page; it will change page
 	function paginate(pageNumber) {
@@ -55,6 +33,20 @@ function AllBirthdays() {
 	}
 	return (
 		<div className="container">
+			{error && (
+				<div className="container">
+					<p className="error-message">{error}</p>
+				</div>
+			)}
+
+			{isPending && (
+				<div className="container">
+					<div className="spinner-container">
+						<LoadingSpinner className="icon-spinner" />
+					</div>
+				</div>
+			)}
+
 			{people && (
 				<>
 					<h3 className="container__title">You have {people.length} birthdays saved</h3>

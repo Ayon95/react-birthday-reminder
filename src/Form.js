@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef, useContext } from 'react';
 import { useHistory } from 'react-router-dom';
 import { GlobalContext } from './GlobalContext.js';
+import { v4 } from 'uuid';
 
 function Form() {
 	const { addPerson } = useContext(GlobalContext);
@@ -28,7 +29,7 @@ function Form() {
 	async function handleSubmit(event) {
 		event.preventDefault();
 		try {
-			const person = { name, month, date, year };
+			const person = { id: v4(), name, month, date, year };
 			addPerson(person);
 
 			setAddingBirthday(true);
@@ -44,7 +45,7 @@ function Form() {
 			history.push('/all-birthdays');
 		} catch (error) {
 			setAddingBirthday(false);
-			setError(error.message);
+			setError('☹ Failed to submit due to a connection error. Please try again later.');
 		}
 	}
 
@@ -99,7 +100,7 @@ function Form() {
 					<button className="btn">Submit</button>
 				)}
 
-				{error && <p>{error}</p>}
+				{error && <p className="error-message">{error}</p>}
 			</form>
 		</div>
 	);

@@ -15,7 +15,11 @@ function Navbar() {
 
 				<Link className="navbar__link" to="/upcoming-birthdays">
 					Upcoming birthdays
-					<span className="notification">{peopleUpcomingBirthdays?.length}</span>
+					{peopleUpcomingBirthdays?.length === 0 ? (
+						''
+					) : (
+						<span className="notification">{peopleUpcomingBirthdays?.length}</span>
+					)}
 				</Link>
 
 				<Link className="navbar__link" to="/all-birthdays">
