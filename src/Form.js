@@ -1,7 +1,10 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useContext } from 'react';
 import { useHistory } from 'react-router-dom';
+import { GlobalContext } from './GlobalContext.js';
 
 function Form() {
+	const { addPerson } = useContext(GlobalContext);
+	// state variables
 	const [name, setName] = useState('');
 	const [month, setMonth] = useState('');
 	const [date, setDate] = useState('');
@@ -26,15 +29,16 @@ function Form() {
 		event.preventDefault();
 		try {
 			const person = { name, month, date, year };
-			setAddingBirthday(true);
+			addPerson(person);
 
+			setAddingBirthday(true);
 			await fetch('http://localhost:8000/people', {
 				method: 'POST',
 				headers: { 'Content-Type': 'application/json' },
 				body: JSON.stringify(person),
 			});
-
 			setAddingBirthday(false);
+
 			setError(null);
 			clearInputFields();
 			history.push('/all-birthdays');

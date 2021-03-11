@@ -1,22 +1,17 @@
 import List from './List';
 import Pagination from './Pagination.js';
-import { useState, useEffect } from 'react';
-import useFetch from './useFetch.js';
+import { useState, useContext } from 'react';
 import { ReactComponent as LoadingSpinner } from './img/reload.svg';
+import { GlobalContext } from './GlobalContext.js';
 
 function AllBirthdays() {
 	// loading data
-	const { data: people, isPending, error } = useFetch('http://localhost:8000/people');
+	const { people, isPending, error, deletePerson } = useContext(GlobalContext);
+	console.log(people);
 	// state variables
 	const [currentPage, setCurrentPage] = useState(1);
 	const [peoplePerPage] = useState(6);
-	const [peopleList, setPeopleList] = useState(people);
 
-	/* update peopleList whenever the value of people prop changes
-	Initially when this component will first mount, people will be null. When the data is loaded from the API, people will no longer be null.
-	useEffect will call setPeopleList and peopleList will be updated with the value of people.
-	We are using the people prop as a dependency here */
-	useEffect(() => setPeopleList(people), [people]);
 	// show error message if there was a problem fetching data
 	if (error) {
 		return (
@@ -42,7 +37,8 @@ function AllBirthdays() {
 		// making the DELETE request
 		await fetch(`http://localhost:8000/people/${id}`, { method: 'DELETE' });
 		// updating peopleList state variable; remove the deleted person from the list
-		setPeopleList(people.filter((person) => person.id !== id));
+		deletePerson(id);
+		// setPeopleList(people.filter((person) => person.id !== id));
 	}
 
 	// we need to make sure that people data is loaded before we use it
@@ -52,7 +48,7 @@ function AllBirthdays() {
 	const startIndex = endIndex - peoplePerPage;
 
 	// getting current people (only the items of the current page)
-	const currentPeople = peopleList.slice(startIndex, endIndex);
+	const currentPeople = people.slice(startIndex, endIndex);
 
 	// paginate function will set the current page; it will change page
 	function paginate(pageNumber) {
@@ -60,11 +56,11 @@ function AllBirthdays() {
 	}
 	return (
 		<div className="container">
-			{peopleList && (
+			{people && (
 				<>
-					<h3 className="container__title">You have {peopleList.length} birthdays saved</h3>
+					<h3 className="container__title">You have {people.length} birthdays saved</h3>
 					<List currentPeople={currentPeople} needAllBirthdays={true} handleDelete={handleDelete} />
-					<Pagination peoplePerPage={peoplePerPage} totalNumPeople={peopleList.length} paginate={paginate} />
+					<Pagination peoplePerPage={peoplePerPage} totalNumPeople={people.length} paginate={paginate} />
 				</>
 			)}
 		</div>

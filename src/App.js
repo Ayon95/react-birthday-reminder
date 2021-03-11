@@ -5,38 +5,41 @@ import Form from './Form.js';
 import AllBirthdays from './AllBirthdays.js';
 import UpcomingBirthdays from './UpcomingBirthdays.js';
 import UpcomingBirthdaysContextProvider from './UpcomingBirthdaysContext';
+import GlobalContextProvider from './GlobalContext.js';
 
 function App() {
 	return (
 		<Router>
-			<div className="App">
-				<UpcomingBirthdaysContextProvider>
-					<Navbar />
-				</UpcomingBirthdaysContextProvider>
+			<GlobalContextProvider>
+				<div className="App">
+					<UpcomingBirthdaysContextProvider>
+						<Navbar />
+					</UpcomingBirthdaysContextProvider>
 
-				<main>
-					<Switch>
-						<Route exact path="/">
-							<Home />
-						</Route>
+					<main>
+						<Switch>
+							<Route exact path="/">
+								<Home />
+							</Route>
 
-						<Route path="/add-birthday">
-							<Form />
-						</Route>
+							<Route path="/add-birthday">
+								<Form />
+							</Route>
 
-						<Route path="/all-birthdays">
-							<AllBirthdays />
-						</Route>
+							<Route path="/all-birthdays">
+								<AllBirthdays />
+							</Route>
 
-						<Route path="/upcoming-birthdays">
-							<UpcomingBirthdaysContextProvider>
-								<UpcomingBirthdays />
-							</UpcomingBirthdaysContextProvider>
-						</Route>
-					</Switch>
-				</main>
-				<Redirect to="/" />
-			</div>
+							<Route path="/upcoming-birthdays">
+								<UpcomingBirthdaysContextProvider>
+									<UpcomingBirthdays />
+								</UpcomingBirthdaysContextProvider>
+							</Route>
+						</Switch>
+					</main>
+					<Redirect to="/" />
+				</div>
+			</GlobalContextProvider>
 		</Router>
 	);
 }

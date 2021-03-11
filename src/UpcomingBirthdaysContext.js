@@ -15,14 +15,13 @@ function UpcomingBirthdaysContextProvider(props) {
     1) the month has to be the same first of all
     2) then the difference between the current date and the person's birth date has to be greater than 0
     3) and the difference cannot be greater than 7 */
+	// const [peopleFiltered, setPeopleFiltered] = useState(null);
 	const peopleFiltered = data?.filter(
 		(person) =>
 			person.month === currentMonth &&
 			Number.parseFloat(person.date) - today > 0 &&
 			Number.parseFloat(person.date) - today <= 7
 	);
-
-	console.log('context provider called');
 
 	const value = { peopleFiltered, isPending, error };
 
