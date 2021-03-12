@@ -32,17 +32,11 @@ function AllBirthdays() {
 	}
 	return (
 		<div className="container">
-			{error && (
-				<div className="container">
-					<p className="error-message">{error}</p>
-				</div>
-			)}
+			{error && <p className="error-message">{error}</p>}
 
 			{isPending && (
-				<div className="container">
-					<div className="spinner-container">
-						<LoadingSpinner className="icon-spinner" />
-					</div>
+				<div className="spinner-container">
+					<LoadingSpinner className="icon-spinner" />
 				</div>
 			)}
 

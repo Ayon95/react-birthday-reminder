@@ -224,6 +224,12 @@ main {
 	animation: expandToRight 0.5s;
 }
 
+.icon--navbar {
+	height: 1.5rem;
+	width: 1.5rem;
+	margin-left: 0.4rem;
+}
+
 /* NOTIFICATION */
 .notification {
 	display: inline-block;
@@ -282,12 +288,6 @@ main {
 	height: 2rem;
 	width: 2rem;
 	fill: var(--clr-pink-3);
-}
-
-.icon--navbar {
-	height: 1.5rem;
-	width: 1.5rem;
-	margin-left: 0.4rem;
 }
 
 .icon--action {
@@ -390,4 +390,40 @@ main {
 	left: 0;
 	border-radius: 4px;
 	background-color: currentColor;
+}
+
+/* SEARCHBAR */
+
+.searchbar {
+	width: 40vw;
+	padding: 1.5rem 2.5rem;
+	border: none;
+	border-radius: 3rem;
+	font-family: 'Quicksand';
+	font-size: 2rem;
+	color: var(--clr-pink-3);
+	background-color: var(--clr-grey-8);
+	margin: 2rem -5.5rem 0 -3rem;
+	transform: scaleX(0.95);
+	transition: transform 0.3s;
+}
+
+.searchbar::placeholder {
+	color: var(--clr-grey-3);
+}
+
+.searchbar:focus {
+	outline: none;
+	box-shadow: 0 0 3px 2px rgb(241, 78, 141);
+	transform: scaleX(1);
+}
+
+.icon--searchbar {
+	position: relative;
+	z-index: 1;
+	transition: transform 0.3s;
+}
+
+.searchbar:focus + .icon--searchbar {
+	transform: translateX(1.5rem);
 }

@@ -4,6 +4,7 @@ import Home from './Home.js';
 import Form from './Form.js';
 import AllBirthdays from './AllBirthdays.js';
 import UpcomingBirthdays from './UpcomingBirthdays.js';
+import Search from './Search.js';
 import GlobalContextProvider from './GlobalContext.js';
 
 function App() {
@@ -29,6 +30,10 @@ function App() {
 
 							<Route path="/all-birthdays">
 								<AllBirthdays />
+							</Route>
+
+							<Route path="/search">
+								<Search />
 							</Route>
 
 							<Route path="/upcoming-birthdays">

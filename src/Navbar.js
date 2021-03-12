@@ -31,6 +31,10 @@ function Navbar() {
 					All <IconCake className="icon icon--navbar" />
 				</Link>
 
+				<Link className="navbar__link" to="/search">
+					Search
+				</Link>
+
 				<span className="separator">|</span>
 
 				<Link className="navbar__link" to="/add-birthday">

@@ -53,7 +53,6 @@ function GlobalContextProvider(props) {
 	const peopleBirthdaysToday = people?.filter(
 		(person) => person.date === String(today) && person.month === currentMonth
 	);
-	console.log(peopleBirthdaysToday);
 
 	const value = {
 		people,
