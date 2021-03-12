@@ -24,6 +24,14 @@ function GlobalContextProvider(props) {
 		setPeople(people.filter((person) => person.id !== id));
 	}
 
+	// this function will handle deleting a person
+	async function handleDelete(id) {
+		// making the DELETE request
+		await fetch(`http://localhost:8000/people/${id}`, { method: 'DELETE' });
+		// updating people list; remove the deleted person from the list
+		deletePerson(id);
+	}
+
 	/* this function will take the id of the person that we want to replace, and the person (with edited data) to replace with
 	The new person will replace the old person. The new person will have the same id as the old person, since
 	it will basically occupy the same spot in the database as the old person */
@@ -59,7 +67,7 @@ function GlobalContextProvider(props) {
 		isPending,
 		error,
 		addPerson,
-		deletePerson,
+		handleDelete,
 		editPerson,
 		peopleUpcomingBirthdays,
 		peopleBirthdaysToday,

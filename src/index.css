@@ -353,7 +353,8 @@ main {
 	color: var(--clr-grey-6);
 }
 
-.form__input:focus {
+.form__input:focus,
+.searchbar:focus {
 	outline: none;
 	box-shadow: 0 0 3px 2px rgb(241, 78, 141);
 }
@@ -403,27 +404,9 @@ main {
 	font-size: 2rem;
 	color: var(--clr-pink-3);
 	background-color: var(--clr-grey-8);
-	margin: 2rem -5.5rem 0 -3rem;
-	transform: scaleX(0.95);
-	transition: transform 0.3s;
+	margin: 2rem -4.5rem 0 -2rem;
 }
 
 .searchbar::placeholder {
 	color: var(--clr-grey-3);
-}
-
-.searchbar:focus {
-	outline: none;
-	box-shadow: 0 0 3px 2px rgb(241, 78, 141);
-	transform: scaleX(1);
-}
-
-.icon--searchbar {
-	position: relative;
-	z-index: 1;
-	transition: transform 0.3s;
-}
-
-.searchbar:focus + .icon--searchbar {
-	transform: translateX(1.5rem);
 }

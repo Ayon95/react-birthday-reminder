@@ -1,10 +1,25 @@
-import { useRef, useState, useEffect } from 'react';
+import { useRef, useState, useEffect, useContext } from 'react';
 import { ReactComponent as IconSearch } from './img/magnifying-glass.svg';
+import { GlobalContext } from './GlobalContext.js';
+import Birthday from './Birthday';
 
 function Search() {
-	const [name, setName] = useState('');
+	const { people, handleDelete } = useContext(GlobalContext);
+	const [searchInput, setSearchInput] = useState('');
+	const [searchResults, setSearchResults] = useState(null);
 	const searchbar = useRef(null);
 	useEffect(() => searchbar.current.focus());
+
+	function filterPeople() {
+		if (!searchInput) return []; // this will ensure that initially no search results are shown (when searchInput = '')
+		return people?.filter((person) => person.name.toLowerCase().includes(searchInput?.toLowerCase()));
+	}
+
+	// whenever search input or the main people data will change, the people list will be filtered and search results will be updated
+	useEffect(() => {
+		setSearchResults(filterPeople());
+	}, [searchInput, people]);
+
 	return (
 		<div className="container">
 			<h3 className="container__title">Search</h3>
@@ -12,13 +27,18 @@ function Search() {
 				<input
 					type="text"
 					className="searchbar"
-					value={name}
+					value={searchInput}
 					required
-					onChange={(event) => setName(event.target.value)}
+					onChange={(event) => setSearchInput(event.target.value)}
 					placeholder="Enter name"
 					ref={searchbar}
 				/>
 				<IconSearch className="icon icon--searchbar" />
+			</div>
+			<div className="persons">
+				{searchResults?.map((person) => {
+					return <Birthday key={person.id} person={person} addedFunctionality={true} handleDelete={handleDelete} />;
+				})}
 			</div>
 		</div>
 	);

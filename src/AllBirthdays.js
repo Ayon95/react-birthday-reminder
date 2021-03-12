@@ -6,18 +6,10 @@ import { GlobalContext } from './GlobalContext.js';
 
 function AllBirthdays() {
 	// loading data
-	const { people, isPending, error, deletePerson } = useContext(GlobalContext);
+	const { people, isPending, error, handleDelete } = useContext(GlobalContext);
 	// state variables
 	const [currentPage, setCurrentPage] = useState(1);
 	const [peoplePerPage] = useState(6);
-
-	// this function will handle deleting a person
-	async function handleDelete(id) {
-		// making the DELETE request
-		await fetch(`http://localhost:8000/people/${id}`, { method: 'DELETE' });
-		// updating people list; remove the deleted person from the list
-		deletePerson(id);
-	}
 
 	// start and end indices
 	const endIndex = currentPage * peoplePerPage;
