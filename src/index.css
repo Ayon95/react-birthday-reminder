@@ -27,6 +27,8 @@ Variables
 	--clr-pink: #f28ab2;
 	--clr-pink-2: #f16da0;
 	--clr-pink-3: #f14e8d;
+	--clr-red-1: rgb(240, 159, 159);
+	--clr-red-2: rgb(255, 82, 82);
 }
 
 /* ANIMATIONS */
@@ -340,6 +342,16 @@ main {
 .searchbar:focus {
 	outline: none;
 	box-shadow: 0 0 3px 2px rgb(241, 78, 141);
+}
+
+.form__input--invalid {
+	background-color: var(--clr-red-1);
+}
+
+.form__validation-error-message {
+	font-size: 1.5rem;
+	font-weight: 500;
+	color: var(--clr-red-2);
 }
 
 /* PAGINATION BUTTONS */

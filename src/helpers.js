@@ -21,3 +21,7 @@ export function manageActivePgButtonStyling(event) {
 	removeActivePgButtonStyling();
 	if (!button.classList.contains('current-pg-button')) button.classList.add('current-pg-button');
 }
+
+export function capitalize(str) {
+	return `${str[0].toUpperCase()}${str.slice(1)}`;
+}

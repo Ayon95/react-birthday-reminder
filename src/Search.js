@@ -12,7 +12,7 @@ function Search() {
 
 	function filterPeople() {
 		if (!searchInput) return []; // this will ensure that initially no search results are shown (when searchInput = '')
-		return people?.filter((person) => person.name.toLowerCase().includes(searchInput?.toLowerCase()));
+		return people?.filter((person) => person.name.toLowerCase().includes(searchInput.toLowerCase()));
 	}
 
 	// whenever search input or the main people data will change, the people list will be filtered and search results will be updated

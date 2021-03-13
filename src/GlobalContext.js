@@ -8,6 +8,7 @@ function GlobalContextProvider(props) {
 	const [people, setPeople] = useState(data);
 
 	const today = new Date().getDate();
+	const currentYear = new Date().getFullYear();
 	const currentMonth = new Date().toLocaleString('default', { month: 'short' });
 
 	/* update people whenever the value of people prop changes Initially the value of people will be null.
@@ -71,6 +72,7 @@ function GlobalContextProvider(props) {
 		editPerson,
 		peopleUpcomingBirthdays,
 		peopleBirthdaysToday,
+		currentYear,
 	};
 
 	return <GlobalContext.Provider value={value}>{props.children}</GlobalContext.Provider>;
