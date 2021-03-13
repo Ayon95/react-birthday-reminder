@@ -1,10 +1,10 @@
 import { useState, useEffect, useRef, useContext } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
 import { GlobalContext } from './GlobalContext.js';
+import { capitalize } from './helpers.js';
 import { v4 } from 'uuid';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
-import { capitalize } from './helpers.js';
 
 function FormComponent({ formType, formTitle }) {
 	const { addPerson, editPerson, currentYear } = useContext(GlobalContext);
