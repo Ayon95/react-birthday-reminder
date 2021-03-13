@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Redirect, Route, Switch } from 'react-router-dom';
 import Navbar from './Navbar.js';
 import Home from './Home.js';
-import Form from './Form.js';
+import FormComponent from './Form.js';
 import AllBirthdays from './AllBirthdays.js';
 import UpcomingBirthdays from './UpcomingBirthdays.js';
 import Search from './Search.js';
@@ -21,11 +21,11 @@ function App() {
 							</Route>
 
 							<Route path="/add-birthday">
-								<Form formType="add" formTitle="Add birthday" />
+								<FormComponent formType="add" formTitle="Add birthday" />
 							</Route>
 
 							<Route path="/edit-birthday/:id">
-								<Form formType="edit" formTitle="Edit birthday" />
+								<FormComponent formType="edit" formTitle="Edit birthday" />
 							</Route>
 
 							<Route path="/all-birthdays">
