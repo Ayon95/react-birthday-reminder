@@ -5,6 +5,7 @@ import FormComponent from './Form.js';
 import AllBirthdays from './AllBirthdays.js';
 import UpcomingBirthdays from './UpcomingBirthdays.js';
 import Search from './Search.js';
+import PageNotFound from './PageNotFound.js';
 import GlobalContextProvider from './GlobalContext.js';
 
 function App() {
@@ -39,9 +40,12 @@ function App() {
 							<Route path="/upcoming-birthdays">
 								<UpcomingBirthdays />
 							</Route>
+
+							<Route path="*">
+								<PageNotFound />
+							</Route>
 						</Switch>
 					</main>
-					<Redirect to="/" />
 				</div>
 			</GlobalContextProvider>
 		</Router>
