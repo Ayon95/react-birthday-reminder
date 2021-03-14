@@ -144,7 +144,7 @@ main {
 	background-color: var(--clr-grey-8);
 	margin-top: 1.5rem;
 	font-size: 1.8rem;
-	padding: 1rem 2rem;
+	padding: 1.5rem 2rem;
 	letter-spacing: var(--spacing);
 	border-radius: var(--radius);
 	cursor: pointer;
@@ -404,4 +404,29 @@ main {
 
 .searchbar::placeholder {
 	color: var(--clr-grey-3);
+}
+
+/* PAGE NOT FOUND */
+.page-not-found {
+	text-align: center;
+	margin-bottom: 10rem;
+}
+
+.icon-sad-face {
+	height: 30rem;
+	width: 30rem;
+}
+
+.page-not-found__heading-1 {
+	font-size: 6rem;
+	color: var(--clr-pink-3);
+}
+
+.page-not-found__heading-2 {
+	font-size: 2.5rem;
+	color: var(--clr-pink-3);
+	margin-bottom: 4rem;
+}
+
+.go-home {
 }
