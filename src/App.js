@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Redirect, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Navbar from './Navbar.js';
 import Home from './Home.js';
 import FormComponent from './Form.js';
@@ -8,6 +8,7 @@ import Search from './Search.js';
 import PageNotFound from './PageNotFound.js';
 import GlobalContextProvider from './GlobalContext.js';
 import Signup from './Signup.js';
+import Login from './Login.js';
 
 function App() {
 	return (
@@ -21,6 +22,11 @@ function App() {
 							<Route path="/signup">
 								<Signup />
 							</Route>
+
+							<Route path="/login">
+								<Login />
+							</Route>
+
 							<Route exact path="/">
 								<Home />
 							</Route>

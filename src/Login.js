@@ -4,17 +4,14 @@ import { GlobalContext } from './GlobalContext.js';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 
-function Signup() {
+function Login() {
 	const emailInputRef = useRef();
-	const [signingUp, setSigningUp] = useState(false);
+	const [loggingIn, setLoggingIn] = useState(false);
 	const [error, setError] = useState(null);
 
 	const schema = Yup.object({
 		email: Yup.string().email('Not a valid email').required('Email is required'),
-		password: Yup.string().min(6, 'Password needs to be at least 6 characters long').required('Password is required'),
-		passwordConfirm: Yup.string()
-			.oneOf([Yup.ref('password'), null], 'Passwords must match')
-			.required('Please confirm your password'),
+		password: Yup.string().required('Password is required'),
 	});
 
 	useEffect(() => {
@@ -23,12 +20,12 @@ function Signup() {
 
 	async function handleSubmit() {
 		try {
-			setSigningUp(true);
+			setLoggingIn(true);
 			console.log('User account created');
-			setSigningUp(false);
+			setLoggingIn(false);
 		} catch (error) {
-			setSigningUp(false);
-			setError('Failed to create an account');
+			setLoggingIn(false);
+			setError('Failed to log in');
 		}
 	}
 	return (
@@ -43,9 +40,9 @@ function Signup() {
 		>
 			{(formik) => (
 				<div className="form-container">
-					<h3 className="container__title form-container__title">Sign Up</h3>
+					<h3 className="container__title form-container__title">Log In</h3>
 					<Form className="form" autoComplete="off">
-						<label className="form__label">Email*</label>
+						<label className="form__label">Email</label>
 						<Field
 							type="email"
 							className={`form__input ${formik.touched.email && formik.errors.email && 'form__input--invalid'}`}
@@ -55,42 +52,31 @@ function Signup() {
 						/>
 						<ErrorMessage component="p" className="form__validation-error-message" name="email" />
 
-						<label className="form__label">Password*</label>
+						<label className="form__label">Password</label>
 						<Field
 							type="password"
 							className={`form__input ${formik.touched.password && formik.errors.password && 'form__input--invalid'}`}
 							name="password"
-							placeholder="Enter password (at least 6 characters)"
+							placeholder="Enter password"
 						/>
 						<ErrorMessage component="p" className="form__validation-error-message" name="password" />
 
-						<label className="form__label">Confirm Password*</label>
-						<Field
-							type="password"
-							className={`form__input ${
-								formik.touched.passwordConfirm && formik.errors.passwordConfirm && 'form__input--invalid'
-							}`}
-							name="passwordConfirm"
-							placeholder="Re-enter password"
-						/>
-						<ErrorMessage component="p" className="form__validation-error-message" name="passwordConfirm" />
-
-						{signingUp ? (
+						{loggingIn ? (
 							<button disabled className="btn">
-								Creating account
+								Logging in
 							</button>
 						) : (
 							<button type="submit" className="btn">
-								Sign Up
+								Log In
 							</button>
 						)}
 
 						{error && <p className="error-message">{error}</p>}
 					</Form>
 					<p className="form-container__text">
-						Already have an account?{' '}
-						<Link className="form-container__link" to="/login">
-							Log In
+						Need an account?{' '}
+						<Link className="form-container__link" to="/signup">
+							Sign Up
 						</Link>
 					</p>
 				</div>
@@ -99,4 +85,4 @@ function Signup() {
 	);
 }
 
-export default Signup;
+export default Login;
