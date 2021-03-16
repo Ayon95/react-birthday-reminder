@@ -65,8 +65,7 @@ function FormComponent({ formType, formTitle }) {
 		return null;
 	}, [formType]);
 
-	async function handleSubmit(event) {
-		event.preventDefault();
+	async function handleSubmit() {
 		try {
 			setAddingBirthday(true);
 
@@ -130,7 +129,7 @@ function FormComponent({ formType, formTitle }) {
 			{(formik) => (
 				<div className="form-container">
 					<h3 className="container__title form-container__title">{formTitle}</h3>
-					<Form className="form" onSubmit={handleSubmit} autoComplete="off">
+					<Form className="form" autoComplete="off">
 						<label className="form__label">Name*</label>
 						<Field
 							type="text"
@@ -172,7 +171,9 @@ function FormComponent({ formType, formTitle }) {
 								Adding Birthday
 							</button>
 						) : (
-							<button className="btn">Submit</button>
+							<button type="submit" className="btn">
+								Submit
+							</button>
 						)}
 
 						{error && <p className="error-message">{error}</p>}

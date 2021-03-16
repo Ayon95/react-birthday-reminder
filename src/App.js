@@ -7,6 +7,7 @@ import UpcomingBirthdays from './UpcomingBirthdays.js';
 import Search from './Search.js';
 import PageNotFound from './PageNotFound.js';
 import GlobalContextProvider from './GlobalContext.js';
+import Signup from './Signup.js';
 
 function App() {
 	return (
@@ -17,6 +18,9 @@ function App() {
 
 					<main>
 						<Switch>
+							<Route path="/signup">
+								<Signup />
+							</Route>
 							<Route exact path="/">
 								<Home />
 							</Route>
