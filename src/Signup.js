@@ -10,11 +10,15 @@ function Signup() {
 	const [error, setError] = useState(null);
 
 	const { signUp } = useContext(AuthContext);
-	const emailInputRef = useRef();
+	const usernameInputRef = useRef();
 	const formRef = useRef();
 	const history = useHistory();
 
 	const schema = Yup.object({
+		username: Yup.string()
+			.min(2, 'Username needs to be at least 2 characters long')
+			.max(20, 'Username cannot be more than 20 characters long')
+			.required(),
 		email: Yup.string().email('Not a valid email').required('Email is required'),
 		password: Yup.string().min(6, 'Password needs to be at least 6 characters long').required('Password is required'),
 		passwordConfirm: Yup.string()
@@ -23,14 +27,14 @@ function Signup() {
 	});
 
 	useEffect(() => {
-		emailInputRef.current.focus();
+		usernameInputRef.current.focus();
 	}, []);
 
 	async function handleSubmit() {
 		try {
 			setError(null);
 			setSigningUp(true);
-			await signUp(formRef.current.values.email, formRef.current.values.password);
+			await signUp(formRef.current.values.email, formRef.current.values.password, formRef.current.values.username); // async operation
 			setSigningUp(false);
 			history.push('/');
 		} catch (error) {
@@ -42,6 +46,7 @@ function Signup() {
 	return (
 		<Formik
 			initialValues={{
+				username: '',
 				email: '',
 				password: '',
 				passwordConfirm: '',
@@ -56,12 +61,21 @@ function Signup() {
 				<div className="form-container">
 					<h3 className="container__title form-container__title">Sign Up</h3>
 					<Form className="form" autoComplete="off" noValidate>
+						<label className="form__label">Username*</label>
+						<Field
+							type="text"
+							className={`form__input ${formik.touched.username && formik.errors.username && 'form__input--invalid'}`}
+							name="username"
+							innerRef={usernameInputRef}
+							placeholder="Enter your username"
+						/>
+						<ErrorMessage component="p" className="form__validation-error-message" name="username" />
+
 						<label className="form__label">Email*</label>
 						<Field
 							type="email"
 							className={`form__input ${formik.touched.email && formik.errors.email && 'form__input--invalid'}`}
 							name="email"
-							innerRef={emailInputRef}
 							placeholder="e.g. geralt@gmail.com"
 						/>
 						<ErrorMessage component="p" className="form__validation-error-message" name="email" />
