@@ -1,13 +1,18 @@
 import { useState, useEffect, useRef, useContext } from 'react';
 import { Link, useHistory, useParams } from 'react-router-dom';
 import { GlobalContext } from './GlobalContext.js';
+import { AuthContext } from './AuthContext.js';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 
 function Login() {
-	const emailInputRef = useRef();
 	const [loggingIn, setLoggingIn] = useState(false);
 	const [error, setError] = useState(null);
+
+	const { logIn } = useContext(AuthContext);
+	const emailInputRef = useRef();
+	const formRef = useRef();
+	const history = useHistory();
 
 	const schema = Yup.object({
 		email: Yup.string().email('Not a valid email').required('Email is required'),
@@ -20,12 +25,15 @@ function Login() {
 
 	async function handleSubmit() {
 		try {
+			setError(null);
 			setLoggingIn(true);
-			console.log('User account created');
+			await logIn(formRef.current.values.email, formRef.current.values.password);
 			setLoggingIn(false);
+			history.push('/');
 		} catch (error) {
 			setLoggingIn(false);
-			setError('Failed to log in');
+			if (window.navigator.onLine) setError('Incorrect email or password');
+			else setError('Failed to log in due to connection error.');
 		}
 	}
 	return (
@@ -37,6 +45,7 @@ function Login() {
 			}}
 			validationSchema={schema}
 			onSubmit={handleSubmit}
+			innerRef={formRef}
 		>
 			{(formik) => (
 				<div className="form-container">

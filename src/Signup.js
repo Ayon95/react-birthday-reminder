@@ -1,13 +1,18 @@
 import { useState, useEffect, useRef, useContext } from 'react';
 import { Link, useHistory, useParams } from 'react-router-dom';
 import { GlobalContext } from './GlobalContext.js';
+import { AuthContext } from './AuthContext.js';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 
 function Signup() {
-	const emailInputRef = useRef();
 	const [signingUp, setSigningUp] = useState(false);
 	const [error, setError] = useState(null);
+
+	const { signUp } = useContext(AuthContext);
+	const emailInputRef = useRef();
+	const formRef = useRef();
+	const history = useHistory();
 
 	const schema = Yup.object({
 		email: Yup.string().email('Not a valid email').required('Email is required'),
@@ -23,9 +28,11 @@ function Signup() {
 
 	async function handleSubmit() {
 		try {
+			setError(null);
 			setSigningUp(true);
-			console.log('User account created');
+			await signUp(formRef.current.values.email, formRef.current.values.password);
 			setSigningUp(false);
+			history.push('/');
 		} catch (error) {
 			setSigningUp(false);
 			setError('Failed to create an account');
@@ -40,6 +47,7 @@ function Signup() {
 			}}
 			validationSchema={schema}
 			onSubmit={handleSubmit}
+			innerRef={formRef}
 		>
 			{(formik) => (
 				<div className="form-container">

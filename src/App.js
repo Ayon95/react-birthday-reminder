@@ -7,57 +7,60 @@ import UpcomingBirthdays from './UpcomingBirthdays.js';
 import Search from './Search.js';
 import PageNotFound from './PageNotFound.js';
 import GlobalContextProvider from './GlobalContext.js';
+import AuthContextProvider from './AuthContext.js';
 import Signup from './Signup.js';
 import Login from './Login.js';
 
 function App() {
 	return (
 		<Router>
-			<GlobalContextProvider>
-				<div className="App">
-					<Navbar />
+			<AuthContextProvider>
+				<GlobalContextProvider>
+					<div className="App">
+						<Navbar />
 
-					<main>
-						<Switch>
-							<Route path="/signup">
-								<Signup />
-							</Route>
+						<main>
+							<Switch>
+								<Route path="/signup">
+									<Signup />
+								</Route>
 
-							<Route path="/login">
-								<Login />
-							</Route>
+								<Route path="/login">
+									<Login />
+								</Route>
 
-							<Route exact path="/">
-								<Home />
-							</Route>
+								<Route exact path="/">
+									<Home />
+								</Route>
 
-							<Route path="/add-birthday">
-								<FormComponent formType="add" formTitle="Add birthday" />
-							</Route>
+								<Route path="/add-birthday">
+									<FormComponent formType="add" formTitle="Add birthday" />
+								</Route>
 
-							<Route path="/edit-birthday/:id">
-								<FormComponent formType="edit" formTitle="Edit birthday" />
-							</Route>
+								<Route path="/edit-birthday/:id">
+									<FormComponent formType="edit" formTitle="Edit birthday" />
+								</Route>
 
-							<Route path="/all-birthdays">
-								<AllBirthdays />
-							</Route>
+								<Route path="/all-birthdays">
+									<AllBirthdays />
+								</Route>
 
-							<Route path="/search">
-								<Search />
-							</Route>
+								<Route path="/search">
+									<Search />
+								</Route>
 
-							<Route path="/upcoming-birthdays">
-								<UpcomingBirthdays />
-							</Route>
+								<Route path="/upcoming-birthdays">
+									<UpcomingBirthdays />
+								</Route>
 
-							<Route path="*">
-								<PageNotFound />
-							</Route>
-						</Switch>
-					</main>
-				</div>
-			</GlobalContextProvider>
+								<Route path="*">
+									<PageNotFound />
+								</Route>
+							</Switch>
+						</main>
+					</div>
+				</GlobalContextProvider>
+			</AuthContextProvider>
 		</Router>
 	);
 }

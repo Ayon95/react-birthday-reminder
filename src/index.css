@@ -134,7 +134,7 @@ main {
 .error-message {
 	font-family: 'Quicksand';
 	font-size: 3rem;
-	color: var(--clr-pink-3);
+	color: var(--clr-red-2);
 	text-align: center;
 }
 

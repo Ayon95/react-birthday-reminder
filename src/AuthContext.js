@@ -1,8 +1,10 @@
 /* We will be using a context for authentication because
 we want to be able to access the current user anywhere in our application */
 
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { auth } from './firebase/firebase.js';
+
+export const AuthContext = React.createContext();
 
 function AuthContextProvider(props) {
 	const [currentUser, setCurrentUser] = useState(null);
@@ -35,3 +37,5 @@ function AuthContextProvider(props) {
 	// we are making sure to only render the components of our application after the current user is set (for the first time)
 	return <AuthContext.Provider value={value}>{!pending && props.children}</AuthContext.Provider>;
 }
+
+export default AuthContextProvider;
