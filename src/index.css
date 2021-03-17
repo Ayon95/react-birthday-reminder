@@ -29,6 +29,7 @@ Variables
 	--clr-pink-3: #f14e8d;
 	--clr-red-1: rgb(240, 159, 159);
 	--clr-red-2: rgb(255, 82, 82);
+	--clr-green-1: rgb(42, 196, 106);
 }
 
 /* ANIMATIONS */
@@ -126,16 +127,25 @@ h4 {
 main {
 	height: 110vh;
 	display: flex;
+	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 	padding: 2rem;
 }
 
-.error-message {
+.message {
 	font-family: 'Quicksand';
-	font-size: 3rem;
-	color: var(--clr-red-2);
+	font-size: 2.8rem;
 	text-align: center;
+}
+
+.message--error {
+	color: var(--clr-red-2);
+}
+
+.message--success {
+	color: var(--clr-green-1);
+	font-size: 2rem;
 }
 
 .btn {

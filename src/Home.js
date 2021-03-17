@@ -8,7 +8,7 @@ function Home() {
 	const { peopleBirthdaysToday, isPending, error } = useContext(GlobalContext);
 	return (
 		<div className="container">
-			{error && <p className="error-message">{error}</p>}
+			{error && <p className="message message--error">{error}</p>}
 			{isPending && (
 				<div className="spinner-container">
 					<LoadingSpinner className="icon-spinner" />

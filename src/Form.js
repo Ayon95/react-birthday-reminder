@@ -77,7 +77,6 @@ function FormComponent({ formType, formTitle }) {
 					date: formRef.current.values.date,
 					year: formRef.current.values.year,
 				};
-				console.log(formRef.current.values);
 				addPerson(person);
 
 				await fetch('http://localhost:8000/people', {
@@ -177,7 +176,7 @@ function FormComponent({ formType, formTitle }) {
 							</button>
 						)}
 
-						{error && <p className="error-message">{error}</p>}
+						{error && <p className="message message--error">{error}</p>}
 					</Form>
 				</div>
 			)}

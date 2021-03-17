@@ -95,7 +95,7 @@ function Signup() {
 							</button>
 						)}
 
-						{error && <p className="error-message">{error}</p>}
+						{error && <p className="message message--error">{error}</p>}
 					</Form>
 					<p className="form-container__text">
 						Already have an account?{' '}

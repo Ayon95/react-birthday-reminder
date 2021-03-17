@@ -82,8 +82,13 @@ function Login() {
 							</button>
 						)}
 
-						{error && <p className="error-message">{error}</p>}
+						{error && <p className="message message--error">{error}</p>}
 					</Form>
+					<p className="form-container__text">
+						<Link className="form-container__link" to="/reset-password">
+							Forgot Password?
+						</Link>
+					</p>
 					<p className="form-container__text">
 						Need an account?{' '}
 						<Link className="form-container__link" to="/signup">

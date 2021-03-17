@@ -11,6 +11,7 @@ import AuthContextProvider from './AuthContext.js';
 import Signup from './Signup.js';
 import Login from './Login.js';
 import ProtectedRoute from './ProtectedRoute.js';
+import ResetPassword from './ResetPassword.js';
 
 function App() {
 	return (
@@ -28,6 +29,10 @@ function App() {
 
 								<Route path="/login">
 									<Login />
+								</Route>
+
+								<Route path="/reset-password">
+									<ResetPassword />
 								</Route>
 
 								<ProtectedRoute exact path="/" component={Home}></ProtectedRoute>
