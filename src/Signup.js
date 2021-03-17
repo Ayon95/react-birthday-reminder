@@ -35,7 +35,8 @@ function Signup() {
 			history.push('/');
 		} catch (error) {
 			setSigningUp(false);
-			setError('Failed to create an account');
+			if (!window.navigator.onLine) setError('Failed to create account due to a network error');
+			else setError(error.message); // if an account with the email already exists
 		}
 	}
 	return (
