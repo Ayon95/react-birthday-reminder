@@ -46,18 +46,20 @@ function Login() {
 			validationSchema={schema}
 			onSubmit={handleSubmit}
 			innerRef={formRef}
+			validateOnBlur={false}
+			validateOnChange={false}
 		>
 			{(formik) => (
 				<div className="form-container">
 					<h3 className="container__title form-container__title">Log In</h3>
-					<Form className="form" autoComplete="off">
+					<Form className="form" autoComplete="off" noValidate>
 						<label className="form__label">Email</label>
 						<Field
 							type="email"
 							className={`form__input ${formik.touched.email && formik.errors.email && 'form__input--invalid'}`}
 							name="email"
 							innerRef={emailInputRef}
-							placeholder="e.g. geralt@gmail.com"
+							placeholder="Enter email"
 						/>
 						<ErrorMessage component="p" className="form__validation-error-message" name="email" />
 

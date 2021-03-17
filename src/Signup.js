@@ -48,11 +48,13 @@ function Signup() {
 			validationSchema={schema}
 			onSubmit={handleSubmit}
 			innerRef={formRef}
+			validateOnBlur={false}
+			validateOnChange={false}
 		>
 			{(formik) => (
 				<div className="form-container">
 					<h3 className="container__title form-container__title">Sign Up</h3>
-					<Form className="form" autoComplete="off">
+					<Form className="form" autoComplete="off" noValidate>
 						<label className="form__label">Email*</label>
 						<Field
 							type="email"

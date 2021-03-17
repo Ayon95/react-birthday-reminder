@@ -322,6 +322,10 @@ main {
 	padding-bottom: 3px;
 }
 
+.form-container__link:hover {
+	border-bottom: 2px solid currentColor;
+}
+
 .form {
 	display: flex;
 	flex-direction: column;

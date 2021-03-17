@@ -29,40 +29,42 @@ function Navbar() {
 		<nav className="navbar">
 			<h1>Birthday Reminder</h1>
 			<div className="navbar__links">
-				<Link className="navbar__link current-link" to="/">
-					Home
-				</Link>
-
-				<Link className="navbar__link" to="/upcoming-birthdays">
-					Upcoming <IconCake className="icon icon--navbar" />
-					{peopleUpcomingBirthdays?.length === 0 ? (
-						''
-					) : (
-						<span className="notification">{peopleUpcomingBirthdays?.length}</span>
-					)}
-				</Link>
-
-				<Link className="navbar__link" to="/all-birthdays">
-					All <IconCake className="icon icon--navbar" />
-				</Link>
-
-				<Link className="navbar__link" to="/search">
-					Search
-				</Link>
-
-				<span className="separator">|</span>
-
-				<Link className="navbar__link" to="/add-birthday">
-					Add <IconCake className="icon icon--navbar" />
-				</Link>
-
 				{currentUser ? (
+					<>
+						<Link className="navbar__link current-link" to="/">
+							Home
+						</Link>
+
+						<Link className="navbar__link" to="/upcoming-birthdays">
+							Upcoming <IconCake className="icon icon--navbar" />
+							{peopleUpcomingBirthdays?.length === 0 ? (
+								''
+							) : (
+								<span className="notification">{peopleUpcomingBirthdays?.length}</span>
+							)}
+						</Link>
+
+						<Link className="navbar__link" to="/all-birthdays">
+							All <IconCake className="icon icon--navbar" />
+						</Link>
+
+						<Link className="navbar__link" to="/search">
+							Search
+						</Link>
+
+						<span className="separator">|</span>
+
+						<Link className="navbar__link" to="/add-birthday">
+							Add <IconCake className="icon icon--navbar" />
+						</Link>
+					</>
+				) : (
+					''
+				)}
+
+				{currentUser && (
 					<Link className="navbar__link" to="/signup" onClick={handleLogout}>
 						Log Out
-					</Link>
-				) : (
-					<Link className="navbar__link" to="/login">
-						Log In
 					</Link>
 				)}
 			</div>

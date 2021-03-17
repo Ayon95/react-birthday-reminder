@@ -10,6 +10,7 @@ import GlobalContextProvider from './GlobalContext.js';
 import AuthContextProvider from './AuthContext.js';
 import Signup from './Signup.js';
 import Login from './Login.js';
+import ProtectedRoute from './ProtectedRoute.js';
 
 function App() {
 	return (
@@ -29,29 +30,25 @@ function App() {
 									<Login />
 								</Route>
 
-								<Route exact path="/">
-									<Home />
-								</Route>
+								<ProtectedRoute exact path="/" component={Home}></ProtectedRoute>
+								<ProtectedRoute exact path="/all-birthdays" component={AllBirthdays}></ProtectedRoute>
 
-								<Route path="/add-birthday">
-									<FormComponent formType="add" formTitle="Add birthday" />
-								</Route>
+								<ProtectedRoute
+									exact
+									path="/add-birthday"
+									data={{ formType: 'add', formTitle: 'Add birthday' }}
+									component={FormComponent}
+								></ProtectedRoute>
 
-								<Route path="/edit-birthday/:id">
-									<FormComponent formType="edit" formTitle="Edit birthday" />
-								</Route>
+								<ProtectedRoute
+									exact
+									path="/edit-birthday/:id"
+									data={{ formType: 'edit', formTitle: 'Edit birthday' }}
+									component={FormComponent}
+								></ProtectedRoute>
 
-								<Route path="/all-birthdays">
-									<AllBirthdays />
-								</Route>
-
-								<Route path="/search">
-									<Search />
-								</Route>
-
-								<Route path="/upcoming-birthdays">
-									<UpcomingBirthdays />
-								</Route>
+								<ProtectedRoute exact path="/search" component={Search}></ProtectedRoute>
+								<ProtectedRoute exact path="/upcoming-birthdays" component={UpcomingBirthdays}></ProtectedRoute>
 
 								<Route path="*">
 									<PageNotFound />

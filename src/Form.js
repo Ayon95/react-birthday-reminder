@@ -125,6 +125,7 @@ function FormComponent({ formType, formTitle }) {
 			onSubmit={handleSubmit}
 			validationSchema={schema}
 			innerRef={formRef}
+			validateOnBlur={false}
 		>
 			{(formik) => (
 				<div className="form-container">
