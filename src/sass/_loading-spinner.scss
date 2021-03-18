@@ -1,0 +1,12 @@
+/* LOADING SPINNER */
+.spinner-container {
+	margin: 2rem auto;
+	text-align: center;
+}
+
+.icon-spinner {
+	height: 4rem;
+	width: 4rem;
+	fill: var(--clr-pink-3);
+	animation: rotate 2s infinite linear;
+}

@@ -1,0 +1,19 @@
+.btn {
+	color: var(--clr-pink-3);
+	border: none;
+	background-color: var(--clr-grey-8);
+	margin-top: 1.5rem;
+	font-size: 1.8rem;
+	padding: 1.5rem 2rem;
+	letter-spacing: var(--spacing);
+	border-radius: var(--radius);
+	cursor: pointer;
+}
+
+.btn:hover {
+	background-color: var(--clr-grey-7);
+}
+
+.btn:active {
+	background-color: var(--clr-grey-8);
+}

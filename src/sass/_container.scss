@@ -1,0 +1,15 @@
+/* CONTAINER */
+
+.container {
+	height: 75vh;
+	padding: 1.5rem 3rem;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+.container__title {
+	text-align: center;
+	color: var(--clr-pink-3);
+	font-size: 3.2rem;
+	font-weight: 600;
+}

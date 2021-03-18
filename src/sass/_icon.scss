@@ -1,0 +1,14 @@
+.icon {
+	height: 2rem;
+	width: 2rem;
+	fill: var(--clr-pink-3);
+}
+
+.icon--action {
+	cursor: pointer;
+	justify-self: end;
+}
+
+.icon--action:hover {
+	fill: var(--clr-pink-2);
+}

@@ -1,0 +1,80 @@
+/*
+=============== 
+Variables
+===============
+*/
+
+:root {
+	/* dark shades of primary color*/
+	--clr-grey-1: hsl(212, 33%, 89%);
+	--clr-grey-2: hsl(210, 31%, 80%);
+	--clr-grey-3: hsl(211, 27%, 70%);
+	--clr-grey-4: hsl(209, 23%, 60%);
+	--clr-grey-5: hsl(210, 22%, 49%);
+	--clr-grey-6: hsl(209, 28%, 39%);
+	--clr-grey-7: hsl(209, 34%, 30%);
+	--clr-grey-8: hsl(211, 39%, 23%);
+	--clr-grey-9: hsl(209, 61%, 16%);
+	--transition: all 0.3s linear;
+	--spacing: 0.1rem;
+	--radius: 0.25rem;
+	--light-shadow: 0 2rem 3.5rem rgba(0, 0, 0, 0.15);
+	--dark-shadow: 0 2rem 3.5rem rgba(0, 0, 0, 0.3);
+	--max-width: 1170px;
+	--fixed-width: 850px;
+	--clr-pink: #f28ab2;
+	--clr-pink-2: #f16da0;
+	--clr-pink-3: #f14e8d;
+	--clr-red-1: rgb(240, 159, 159);
+	--clr-red-2: rgb(255, 82, 82);
+	--clr-green-1: rgb(42, 196, 106);
+}
+
+/*
+=============== 
+Global Styles
+===============
+*/
+
+*,
+::after,
+::before {
+	margin: 0;
+	padding: 0;
+	box-sizing: inherit;
+}
+
+html {
+	font-size: 62.5%;
+}
+
+body {
+	box-sizing: border-box;
+	font-family: 'Quicksand';
+	color: var(--clr-grey-9);
+	line-height: 1.5;
+	background-color: #eee;
+}
+ul {
+	list-style-type: none;
+}
+a {
+	text-decoration: none;
+}
+h1,
+h2,
+h3,
+h4 {
+	letter-spacing: var(--spacing);
+	text-transform: capitalize;
+	line-height: 1.25;
+}
+
+main {
+	height: 110vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	padding: 2rem;
+}

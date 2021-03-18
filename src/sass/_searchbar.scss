@@ -1,0 +1,17 @@
+/* SEARCHBAR */
+
+.searchbar {
+	width: 40vw;
+	padding: 1.5rem 2.5rem;
+	border: none;
+	border-radius: 3rem;
+	font-family: 'Quicksand';
+	font-size: 2rem;
+	color: var(--clr-pink-3);
+	background-color: var(--clr-grey-8);
+	margin: 2rem -4.5rem 0 -2rem;
+}
+
+.searchbar::placeholder {
+	color: var(--clr-grey-3);
+}
