@@ -1,10 +1,9 @@
 /* PERSON */
 
 .persons {
-	margin: 3rem;
+	margin: 3rem 0;
 	display: grid;
 	grid-template-columns: repeat(2, max-content);
-	justify-content: center;
 	gap: 1.5rem;
 }
 .person {
@@ -16,7 +15,6 @@
 	padding: 3rem;
 	border-radius: 4px;
 	align-items: center;
-	align-content: center;
 	background-color: var(--clr-grey-9);
 	box-shadow: var(--light-shadow);
 

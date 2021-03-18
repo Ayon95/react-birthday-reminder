@@ -30,6 +30,18 @@ Variables
 	--clr-green-1: rgb(42, 196, 106);
 }
 
+// BREAKPOINTS
+$bp-large: 1000px;
+$bp-small: 500px;
+$bp-smallest: 350px;
+
+// MEDIA QUERY MANAGER
+@mixin respond-max($breakpoint) {
+	@media only screen and (max-width: $breakpoint / 16px * 1em) {
+		@content;
+	}
+}
+
 /*
 =============== 
 Global Styles
@@ -46,6 +58,14 @@ Global Styles
 
 html {
 	font-size: 62.5%;
+
+	@include respond-max($bp-small) {
+		font-size: 52%;
+	}
+
+	@include respond-max($bp-smallest) {
+		font-size: 48%;
+	}
 }
 
 body {
@@ -71,9 +91,8 @@ h4 {
 }
 
 main {
-	height: 110vh;
+	height: 100vh;
 	display: flex;
-	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 	padding: 2rem;

@@ -4,7 +4,8 @@
 	background-color: var(--clr-grey-9);
 	backdrop-filter: blur(3px);
 	padding: 3rem 4rem;
-	width: 500px;
+	height: 57rem;
+	width: #{'min(90vw, 50rem)'}; // max width of 500px; cannot be any smaller than 90vw when screen size becomes smaller than 500px
 	margin: 5rem 0;
 	border-radius: 4px;
 	box-shadow: var(--light-shadow);

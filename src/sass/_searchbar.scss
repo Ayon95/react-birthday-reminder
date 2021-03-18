@@ -1,7 +1,11 @@
 /* SEARCHBAR */
 
+.searchbar-container {
+	position: relative;
+}
+
 .searchbar {
-	width: 40vw;
+	width: #{'min(85vw, 600px)'}; // need to use string interpolation for the min() and max() functions to work in sass
 	padding: 1.5rem 2.5rem;
 	border: none;
 	border-radius: 3rem;
@@ -19,4 +23,9 @@
 		outline: none;
 		box-shadow: 0 0 3px 2px rgb(241, 78, 141);
 	}
+}
+
+.icon--searchbar {
+	position: absolute;
+	top: 3.5rem;
 }
