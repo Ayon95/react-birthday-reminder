@@ -34,7 +34,9 @@ function AllBirthdays() {
 
 			{people && (
 				<>
-					<h3 className="container__title">You have {people.length} birthdays saved</h3>
+					<h3 className="container__title">
+						You have {people.length === 0 ? 'No' : people.length} birthday{people.length === 1 ? '' : 's'} saved
+					</h3>
 					<AllBirthdaysList currentPeople={currentPeople} handleDelete={handleDelete} />
 					<Pagination peoplePerPage={peoplePerPage} totalNumPeople={people.length} paginate={paginate} />
 				</>

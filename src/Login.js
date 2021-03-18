@@ -1,6 +1,5 @@
 import { useState, useEffect, useRef, useContext } from 'react';
-import { Link, useHistory, useParams } from 'react-router-dom';
-import { GlobalContext } from './GlobalContext.js';
+import { Link, useHistory } from 'react-router-dom';
 import { AuthContext } from './AuthContext.js';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
@@ -32,7 +31,7 @@ function Login() {
 			history.push('/');
 		} catch (error) {
 			setLoggingIn(false);
-			if (window.navigator.onLine) setError('Incorrect email or password');
+			if (window.navigator.onLine) setError(error.message);
 			else setError('Failed to log in due to connection error.');
 		}
 	}

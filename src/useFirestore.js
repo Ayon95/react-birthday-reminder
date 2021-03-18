@@ -11,9 +11,10 @@ function useFirestore(collectionName) {
 
 	async function loadData(collectionName) {
 		try {
-			// query snapshot of the database; get the docs with userId equal to the logged-in user's id
-			const snapshot = await db.collection(collectionName).where('userId', '==', currentUser.uid).get();
-			const data = snapshot.map((doc) => doc.data());
+			// destructuring docs from query snapshot of the database; get the docs with userId equal to the logged-in user's id
+			const { docs } = await db.collection(collectionName).where('userId', '==', currentUser.uid).get();
+			const data = docs.map((doc) => doc.data());
+			console.log(data);
 
 			// setting data
 			setData(data);
@@ -27,7 +28,7 @@ function useFirestore(collectionName) {
 
 	useEffect(() => {
 		loadData(collectionName);
-	}, [collectionName]);
+	}, [collectionName, currentUser]);
 
 	return { data, isPending, error };
 }

@@ -25,8 +25,9 @@ function ResetPassword() {
 			setSendingRequest(false);
 			setMessage('Check your inbox for further instructions');
 			formRef.current.resetForm();
-		} catch {
-			setError('Failed to reset password');
+		} catch (error) {
+			if (!window.navigator.onLine) setError('Failed to send request due to a network error.');
+			else setError(error.message);
 			setSendingRequest(false);
 		}
 	}

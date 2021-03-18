@@ -1,18 +1,20 @@
 import React from 'react';
-import useFetch from './useFetch.js';
+import useFirestore from './useFirestore.js';
 import { useState, useEffect } from 'react';
+import { db } from './firebase/firebase.js';
 
 export const GlobalContext = React.createContext();
 function GlobalContextProvider(props) {
-	const { data, isPending, error } = useFetch('http://localhost:8000/people');
+	// const { data, isPending, error } = useFetch('http://localhost:8000/people');
+	const { data, isPending, error } = useFirestore('persons');
 	const [people, setPeople] = useState(data);
 
 	const today = new Date().getDate();
 	const currentYear = new Date().getFullYear();
 	const currentMonth = new Date().toLocaleString('default', { month: 'short' });
 
-	/* update people whenever the value of people prop changes Initially the value of people will be null.
-    When the data is loaded from the API, people will no longer be null.
+	/* update people whenever the value of data changes. Initially data will be null.
+    When the data is loaded from the API, we have to set people to that loaded data.
 	useEffect will call setPeople and people data will be updated with the data that was loaded.
 	We are using data as a dependency here, so that whenever data changes, people state variable will be updated */
 	useEffect(() => setPeople(data), [data]);
@@ -28,7 +30,9 @@ function GlobalContextProvider(props) {
 	// this function will handle deleting a person
 	async function handleDelete(id) {
 		// making the DELETE request
-		await fetch(`http://localhost:8000/people/${id}`, { method: 'DELETE' });
+		// await fetch(`http://localhost:8000/people/${id}`, { method: 'DELETE' });
+		await db.collection('persons').doc(id).delete();
+
 		// updating people list; remove the deleted person from the list
 		deletePerson(id);
 	}
