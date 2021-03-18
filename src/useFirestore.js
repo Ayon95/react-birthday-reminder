@@ -9,24 +9,23 @@ function useFirestore(collectionName) {
 
 	const { currentUser } = useContext(AuthContext);
 
-	async function loadData(collectionName) {
-		try {
-			// destructuring docs from query snapshot of the database; get the docs with userId equal to the logged-in user's id
-			const { docs } = await db.collection(collectionName).where('userId', '==', currentUser.uid).get();
-			const data = docs.map((doc) => doc.data());
-			console.log(data);
-
-			// setting data
-			setData(data);
-			setIsPending(false);
-			if (error) setError(null);
-		} catch (error) {
-			setError(error.message);
-			setIsPending(false);
-		}
-	}
-
 	useEffect(() => {
+		async function loadData(collectionName) {
+			try {
+				// destructuring docs from query snapshot of the database; get the docs with userId equal to the logged-in user's id
+				const { docs } = await db.collection(collectionName).where('userId', '==', currentUser.uid).get();
+				const data = docs.map((doc) => doc.data());
+
+				// setting data
+				setData(data);
+				setIsPending(false);
+				if (error) setError(null);
+			} catch (error) {
+				setError(error.message);
+				setIsPending(false);
+			}
+		}
+
 		loadData(collectionName);
 	}, [collectionName, currentUser]);
 

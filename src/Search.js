@@ -10,13 +10,12 @@ function Search() {
 	const searchbar = useRef(null);
 	useEffect(() => searchbar.current.focus());
 
-	function filterPeople() {
-		if (!searchInput) return []; // this will ensure that initially no search results are shown (when searchInput = '')
-		return people?.filter((person) => person.name.toLowerCase().includes(searchInput.toLowerCase()));
-	}
-
 	// whenever search input or the main people data will change, the people list will be filtered and search results will be updated
 	useEffect(() => {
+		function filterPeople() {
+			if (!searchInput) return []; // this will ensure that initially no search results are shown (when searchInput = '')
+			return people?.filter((person) => person.name.toLowerCase().includes(searchInput.toLowerCase()));
+		}
 		setSearchResults(filterPeople());
 	}, [searchInput, people]);
 

@@ -4,14 +4,13 @@ import { GlobalContext } from './GlobalContext';
 import { AuthContext } from './AuthContext.js';
 import { manageActiveLinkStyling } from './helpers.js';
 import { useEffect } from 'react';
-import { ReactComponent as IconCake } from './img/birthday-cake.svg';
 
 function Navbar() {
 	const [error, setError] = useState(null);
 	const { peopleUpcomingBirthdays } = useContext(GlobalContext);
 	const currentLocation = useLocation();
 	const history = useHistory();
-	const { currentUser, logOut } = useContext(AuthContext);
+	const { currentUser, currentUserDoc, logOut } = useContext(AuthContext);
 	// want to call this function whenever the current location changes
 	useEffect(manageActiveLinkStyling, [currentLocation]);
 
@@ -27,7 +26,7 @@ function Navbar() {
 	}
 	return (
 		<nav className="navbar">
-			<h1>Birthday Reminder</h1>
+			<h1>{currentUserDoc ? `Hello, ${currentUserDoc.username}` : 'Birthday Reminder'}</h1>
 			<div className="navbar__links">
 				{currentUser ? (
 					<>
@@ -36,7 +35,7 @@ function Navbar() {
 						</Link>
 
 						<Link className="navbar__link" to="/upcoming-birthdays">
-							Upcoming <IconCake className="icon icon--navbar" />
+							Upcoming
 							{peopleUpcomingBirthdays?.length === 0 ? (
 								''
 							) : (
@@ -45,7 +44,7 @@ function Navbar() {
 						</Link>
 
 						<Link className="navbar__link" to="/all-birthdays">
-							All <IconCake className="icon icon--navbar" />
+							All
 						</Link>
 
 						<Link className="navbar__link" to="/search">
@@ -55,7 +54,7 @@ function Navbar() {
 						<span className="separator">|</span>
 
 						<Link className="navbar__link" to="/add-birthday">
-							Add <IconCake className="icon icon--navbar" />
+							Add
 						</Link>
 					</>
 				) : (

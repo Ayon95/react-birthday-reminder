@@ -183,16 +183,11 @@ main {
 	font-size: 1.7rem;
 	font-weight: 500;
 	display: inline-block;
-	transition: transform 0.2s;
 	position: relative;
 }
 
-.navbar__link:hover {
-	transform: scale(1.02) translateY(-2px);
-}
-
 .navbar__link:not(:last-child) {
-	margin-right: 3.5rem;
+	margin-right: 3rem;
 }
 
 .separator {
@@ -212,12 +207,6 @@ main {
 	background-color: currentColor;
 	transform-origin: left;
 	animation: expandToRight 0.5s;
-}
-
-.icon--navbar {
-	height: 1.5rem;
-	width: 1.5rem;
-	margin-left: 0.4rem;
 }
 
 /* NOTIFICATION */
