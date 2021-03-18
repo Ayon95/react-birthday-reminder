@@ -8,12 +8,12 @@
 	letter-spacing: var(--spacing);
 	border-radius: var(--radius);
 	cursor: pointer;
-}
 
-.btn:hover {
-	background-color: var(--clr-grey-7);
-}
+	&:hover {
+		background-color: var(--clr-grey-7);
+	}
 
-.btn:active {
-	background-color: var(--clr-grey-8);
+	&:active {
+		background-color: var(--clr-grey-8);
+	}
 }

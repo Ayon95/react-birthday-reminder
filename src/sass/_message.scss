@@ -2,13 +2,13 @@
 	font-family: 'Quicksand';
 	font-size: 2.8rem;
 	text-align: center;
-}
 
-.message--error {
-	color: var(--clr-red-2);
-}
+	&--error {
+		color: var(--clr-red-2);
+	}
 
-.message--success {
-	color: var(--clr-green-1);
-	font-size: 2rem;
+	&--success {
+		color: var(--clr-green-1);
+		font-size: 2rem;
+	}
 }

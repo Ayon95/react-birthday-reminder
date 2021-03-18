@@ -3,21 +3,21 @@
 .pg-buttons {
 	display: flex;
 	gap: 1.3rem;
-}
 
-.pg-buttons__button {
-	position: relative; /* for positioning its before pseudo-element */
-	background-color: var(--clr-grey-9);
-	padding: 0.5rem 1.3rem;
-	border-radius: 4px;
-	cursor: pointer;
-	font-size: 1.5rem;
-	font-weight: 500;
-	color: var(--clr-pink-3);
-}
+	&__button {
+		position: relative; /* for positioning its before pseudo-element */
+		background-color: var(--clr-grey-9);
+		padding: 0.5rem 1.3rem;
+		border-radius: 4px;
+		cursor: pointer;
+		font-size: 1.5rem;
+		font-weight: 500;
+		color: var(--clr-pink-3);
+	}
 
-.pg-buttons__button:hover {
-	background-color: var(--clr-grey-8);
+	&__button:hover {
+		background-color: var(--clr-grey-8);
+	}
 }
 
 .current-pg-button::before {

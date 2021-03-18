@@ -6,23 +6,24 @@
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-}
-.navbar h1 {
-	color: var(--clr-pink-3);
-	font-size: 4rem;
-}
 
-.navbar__link:link,
-.navbar__link:visited {
-	color: var(--clr-pink-3);
-	font-size: 1.7rem;
-	font-weight: 500;
-	display: inline-block;
-	position: relative;
-}
+	& h1 {
+		color: var(--clr-pink-3);
+		font-size: 4rem;
+	}
 
-.navbar__link:not(:last-child) {
-	margin-right: 3rem;
+	&__link:link,
+	&__link:visited {
+		color: var(--clr-pink-3);
+		font-size: 1.7rem;
+		font-weight: 500;
+		display: inline-block;
+		position: relative;
+	}
+
+	&__link:not(:last-child) {
+		margin-right: 3rem;
+	}
 }
 
 .separator {

@@ -10,8 +10,13 @@
 	color: var(--clr-pink-3);
 	background-color: var(--clr-grey-8);
 	margin: 2rem -4.5rem 0 -2rem;
-}
 
-.searchbar::placeholder {
-	color: var(--clr-grey-3);
+	&::placeholder {
+		color: var(--clr-grey-3);
+	}
+
+	&:focus {
+		outline: none;
+		box-shadow: 0 0 3px 2px rgb(241, 78, 141);
+	}
 }
