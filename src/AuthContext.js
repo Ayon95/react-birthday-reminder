@@ -5,9 +5,11 @@ import React, { useEffect, useState } from 'react';
 import { auth, db } from './firebase/firebase.js';
 
 export const AuthContext = React.createContext();
+const usersRef = db.collection('users');
 
 function AuthContextProvider(props) {
 	const [currentUser, setCurrentUser] = useState(null);
+	const [currentUserDoc, setCurrentUserDoc] = useState(null);
 	const [pending, setPending] = useState(true); // initially, pending will be true because the current user hasn't been set yet
 
 	const signUp = async (email, password, username) => {
@@ -15,7 +17,7 @@ function AuthContextProvider(props) {
 		const cred = await auth.createUserWithEmailAndPassword(email, password);
 
 		// after the user is created, create a user doc with the same id as the uid of created user
-		db.collection('users').doc(cred.user.uid).set({ username });
+		usersRef.doc(cred.user.uid).set({ username });
 	};
 	const logIn = (email, password) => auth.signInWithEmailAndPassword(email, password);
 	const logOut = () => auth.signOut();
@@ -26,6 +28,15 @@ function AuthContextProvider(props) {
 		const unsubscribe = auth.onAuthStateChanged((user) => {
 			// setting the current user
 			setCurrentUser(user);
+			// setting the current user doc
+			if (user) {
+				usersRef
+					.doc(user.uid)
+					.get()
+					.then((doc) => setCurrentUserDoc(doc.data()))
+					.catch((error) => console.log(`Error getting document: ${error}`));
+			} else setCurrentUserDoc(null);
+
 			setPending(false);
 		});
 		// we will unsubscribe from this listener when the component unmounts
@@ -34,6 +45,7 @@ function AuthContextProvider(props) {
 
 	const value = {
 		currentUser,
+		currentUserDoc,
 		signUp,
 		logIn,
 		logOut,
