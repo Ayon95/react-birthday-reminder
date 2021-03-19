@@ -9,7 +9,7 @@ function AllBirthdays() {
 	const { people, isPending, error, handleDelete } = useContext(GlobalContext);
 	// state variables
 	const [currentPage, setCurrentPage] = useState(1);
-	const [peoplePerPage] = useState(6);
+	const [peoplePerPage] = useState(8);
 
 	// start and end indices
 	const endIndex = currentPage * peoplePerPage;
