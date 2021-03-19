@@ -78,6 +78,10 @@ function FormComponent({ formType, formTitle }) {
 		try {
 			setAddingBirthday(true);
 
+			// checking for internet connection; firestore doesn't throw error when there is no internet connection
+			if (!window.navigator.onLine)
+				throw new Error('☹ Failed to submit due to a connection error. Please try again later.');
+
 			if (formType === 'add') {
 				const person = {
 					id: v4(),
@@ -127,7 +131,7 @@ function FormComponent({ formType, formTitle }) {
 			history.push('/all-birthdays');
 		} catch (error) {
 			setAddingBirthday(false);
-			setError('☹ Failed to submit due to a connection error. Please try again later.');
+			setError(error.message);
 		}
 	}
 
