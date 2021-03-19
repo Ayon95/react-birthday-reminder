@@ -1,0 +1,21 @@
+[debug] [2021-03-19T21:29:47.875Z] ----------------------------------------------------------------------
+[debug] [2021-03-19T21:29:47.876Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\mushf\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2021-03-19T21:29:47.877Z] CLI Version:   9.6.1
+[debug] [2021-03-19T21:29:47.877Z] Platform:      win32
+[debug] [2021-03-19T21:29:47.877Z] Node Version:  v14.15.4
+[debug] [2021-03-19T21:29:47.878Z] Time:          Fri Mar 19 2021 17:29:47 GMT-0400 (Eastern Daylight Time)
+[debug] [2021-03-19T21:29:47.878Z] ----------------------------------------------------------------------
+[debug] [2021-03-19T21:29:47.878Z] 
+[debug] [2021-03-19T21:29:47.882Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2021-03-19T21:29:47.883Z] > authorizing via signed-in user
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  C:\Users\mushf\React\react-beginner-projects-john-smilga\1-birthday-reminder\setup
+
