@@ -3,12 +3,32 @@
 .navbar {
 	background-color: var(--clr-grey-9);
 	padding: 5rem;
-	text-align: center;
+	// text-align: center;
+
+	@include respond-max($bp-medium) {
+		padding: 3rem 1rem;
+	}
 
 	& h1 {
+		text-align: center;
 		color: var(--clr-pink-3);
 		font-size: 5rem;
 		margin-bottom: 3rem;
+
+		@include respond-max($bp-small) {
+			font-size: 4rem;
+		}
+	}
+
+	&__links {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		gap: 4rem;
+
+		@include respond-max($bp-smallest) {
+			gap: 3.3rem;
+		}
 	}
 
 	&__link:link,
@@ -18,10 +38,10 @@
 		font-weight: 500;
 		display: inline-block;
 		position: relative;
-	}
 
-	&__link:not(:last-child) {
-		margin-right: 4rem;
+		@include respond-max($bp-smallest) {
+			font-size: 1.7rem;
+		}
 	}
 }
 

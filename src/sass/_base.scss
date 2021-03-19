@@ -32,12 +32,20 @@ Variables
 
 // BREAKPOINTS
 $bp-large: 1000px;
-$bp-small: 500px;
-$bp-smallest: 350px;
+$bp-big-desk: 1800px;
+$bp-medium: 700px;
+$bp-small: 520px;
+$bp-smallest: 370px;
 
 // MEDIA QUERY MANAGER
 @mixin respond-max($breakpoint) {
 	@media only screen and (max-width: $breakpoint / 16px * 1em) {
+		@content;
+	}
+}
+
+@mixin respond-min($breakpoint) {
+	@media only screen and (min-width: $breakpoint / 16px * 1em) {
 		@content;
 	}
 }
@@ -59,12 +67,20 @@ Global Styles
 html {
 	font-size: 62.5%;
 
+	@include respond-max($bp-medium) {
+		font-size: 56%;
+	}
+
 	@include respond-max($bp-small) {
-		font-size: 52%;
+		font-size: 50%;
 	}
 
 	@include respond-max($bp-smallest) {
-		font-size: 48%;
+		font-size: 45%;
+	}
+
+	@include respond-min($bp-big-desk) {
+		font-size: 75%;
 	}
 }
 

@@ -3,6 +3,14 @@
 	font-size: 2.8rem;
 	text-align: center;
 
+	@include respond-max($bp-small) {
+		font-size: 2.3rem;
+	}
+
+	@include respond-max($bp-smallest) {
+		font-size: 2rem;
+	}
+
 	&--error {
 		color: var(--clr-red-2);
 	}
