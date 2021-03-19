@@ -25,23 +25,18 @@
 	}
 }
 
-.separator {
-	color: var(--clr-pink-3);
-	margin-right: 3.5rem;
-	font-size: 1.5rem;
-}
-
-.current-link::before {
+.current-link::before,
+.navbar__link:hover::before {
 	position: absolute;
 	content: '';
 	display: inline-block;
 	width: 100%;
 	height: 2.5px;
 	border-radius: 4px;
-	top: 2.7rem;
+	top: 2.9rem;
 	background-color: currentColor;
 	transform-origin: left;
-	animation: expandToRight 0.5s;
+	animation: expandToRight 0.5s cubic-bezier(0.98, 0.01, 0, 1.31);
 }
 
 /* NOTIFICATION */

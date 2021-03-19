@@ -51,8 +51,6 @@ function Navbar() {
 							Search
 						</Link>
 
-						<span className="separator">|</span>
-
 						<Link className="navbar__link" to="/add-birthday">
 							Add
 						</Link>
