@@ -1,6 +1,6 @@
 import { useRef, useState, useEffect, useContext } from 'react';
-import { ReactComponent as IconSearch } from './img/magnifying-glass.svg';
-import { GlobalContext } from './GlobalContext.js';
+import { ReactComponent as IconSearch } from '../img/magnifying-glass.svg';
+import { GlobalContext } from '../contexts/GlobalContext.js';
 import Birthday from './Birthday';
 
 function Search() {

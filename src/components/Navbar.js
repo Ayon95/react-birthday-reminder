@@ -1,8 +1,8 @@
 import { useContext, useState } from 'react';
 import { Link, useHistory, useLocation } from 'react-router-dom';
-import { GlobalContext } from './GlobalContext';
-import { AuthContext } from './AuthContext.js';
-import { manageActiveLinkStyling } from './helpers.js';
+import { GlobalContext } from '../contexts/GlobalContext';
+import { AuthContext } from '../contexts/AuthContext.js';
+import { manageActiveLinkStyling } from '../helpers.js';
 import { useEffect } from 'react';
 
 function Navbar() {

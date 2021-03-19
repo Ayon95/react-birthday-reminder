@@ -2,7 +2,7 @@
 we want to be able to access the current user anywhere in our application */
 
 import React, { useEffect, useState } from 'react';
-import { auth, db } from './firebase/firebase.js';
+import { auth, db } from '../firebase/firebase.js';
 
 export const AuthContext = React.createContext();
 const usersRef = db.collection('users');

@@ -1,12 +1,12 @@
 import { useState, useEffect, useRef, useContext } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
-import { GlobalContext } from './GlobalContext.js';
-import { capitalize } from './helpers.js';
+import { GlobalContext } from '../contexts/GlobalContext.js';
+import { capitalize } from '../helpers.js';
 import { v4 } from 'uuid';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
-import { AuthContext } from './AuthContext.js';
-import { db } from './firebase/firebase.js';
+import { AuthContext } from '../contexts/AuthContext.js';
+import { db } from '../firebase/firebase.js';
 
 function FormComponent({ formType, formTitle }) {
 	const { addPerson, editPerson, currentYear } = useContext(GlobalContext);
@@ -80,7 +80,7 @@ function FormComponent({ formType, formTitle }) {
 
 			// checking for internet connection; firestore doesn't throw error when there is no internet connection
 			if (!window.navigator.onLine)
-				throw new Error('☹ Failed to submit due to a connection error. Please try again later.');
+				throw new Error('Failed to submit due to a connection error. Please try again later.');
 
 			if (formType === 'add') {
 				const person = {

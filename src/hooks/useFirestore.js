@@ -1,6 +1,6 @@
 import { useState, useEffect, useContext } from 'react';
-import { AuthContext } from './AuthContext.js';
-import { db } from './firebase/firebase.js';
+import { AuthContext } from '../contexts/AuthContext.js';
+import { db } from '../firebase/firebase.js';
 
 function useFirestore(collectionName) {
 	const [data, setData] = useState(null);

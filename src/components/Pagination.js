@@ -1,4 +1,4 @@
-import { manageActivePgButtonStyling } from './helpers.js';
+import { manageActivePgButtonStyling } from '../helpers.js';
 
 function Pagination({ peoplePerPage, totalNumPeople, paginate }) {
 	const pageNumbers = [];

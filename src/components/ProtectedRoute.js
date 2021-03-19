@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import { Route, Redirect } from 'react-router-dom';
-import { AuthContext } from './AuthContext';
+import { AuthContext } from '../contexts/AuthContext';
 
 function ProtectedRoute({ component: Component, data, ...rest }) {
 	const { currentUser } = useContext(AuthContext);

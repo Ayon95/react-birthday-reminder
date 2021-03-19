@@ -1,7 +1,7 @@
 import React from 'react';
-import useFirestore from './useFirestore.js';
+import useFirestore from '../hooks/useFirestore.js';
 import { useState, useEffect } from 'react';
-import { db } from './firebase/firebase.js';
+import { db } from '../firebase/firebase.js';
 
 export const GlobalContext = React.createContext();
 function GlobalContextProvider(props) {

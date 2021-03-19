@@ -1,4 +1,4 @@
-import { ReactComponent as SadFace } from './img/sad.svg';
+import { ReactComponent as SadFace } from '../img/sad.svg';
 import { Link } from 'react-router-dom';
 
 function PageNotFound() {
@@ -8,7 +8,7 @@ function PageNotFound() {
 			<h1 className="page-not-found__heading-1">404 Error</h1>
 			<h2 className="page-not-found__heading-2">Sorry, we could not find the page you were looking for.</h2>
 			<Link to="/" className="btn">
-				Go back to home page
+				Go back
 			</Link>
 		</div>
 	);
