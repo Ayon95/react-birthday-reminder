@@ -13,7 +13,11 @@ function useFirestore(collectionName) {
 		async function loadData(collectionName) {
 			try {
 				// destructuring docs from query snapshot of the database; get the docs with userId equal to the logged-in user's id
-				const { docs } = await db.collection(collectionName).where('userId', '==', currentUser.uid).get();
+				const { docs } = await db
+					.collection(collectionName)
+					.where('userId', '==', currentUser.uid)
+					.orderBy('name')
+					.get();
 				const data = docs.map((doc) => doc.data());
 
 				// setting data
