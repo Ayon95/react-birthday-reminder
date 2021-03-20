@@ -6,6 +6,10 @@
 	grid-template-columns: repeat(2, max-content);
 	gap: 1.5rem;
 
+	@include respond-max($bp-small) {
+		grid-template-columns: max-content;
+	}
+
 	@include respond-max($bp-smallest) {
 		gap: 1rem;
 	}
