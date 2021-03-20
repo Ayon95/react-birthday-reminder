@@ -26,7 +26,7 @@ function FormComponent({ formType, formTitle }) {
 			.required('Name is a required field')
 			.min(2, 'Name needs to be at least 2 characters long')
 			.max(60, 'Name cannot have more than 60 characters')
-			.matches(/^[a-z]+$/i, 'Not a valid name'),
+			.matches(/^[a-z\s]+$/i, 'Not a valid name'),
 
 		month: Yup.string()
 			.required('Month is a required field')
