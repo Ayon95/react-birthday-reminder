@@ -34,8 +34,11 @@
 .form {
 	display: flex;
 	flex-direction: column;
-	gap: 1.3rem;
 	margin-bottom: 1rem;
+
+	& > *:not(:last-child) {
+		margin-bottom: 1.3rem;
+	}
 
 	&__label {
 		color: var(--clr-pink-3);

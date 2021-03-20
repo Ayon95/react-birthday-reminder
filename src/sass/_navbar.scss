@@ -24,11 +24,6 @@
 		display: flex;
 		flex-wrap: wrap;
 		justify-content: center;
-		gap: 4rem;
-
-		@include respond-max($bp-smallest) {
-			gap: 3.3rem;
-		}
 	}
 
 	&__link:link,
@@ -38,9 +33,18 @@
 		font-weight: 500;
 		display: inline-block;
 		position: relative;
+		margin-bottom: 1rem;
 
 		@include respond-max($bp-smallest) {
 			font-size: 1.7rem;
+		}
+	}
+
+	&__link:not(:last-child) {
+		margin-right: 4rem;
+
+		@include respond-max($bp-small) {
+			margin-right: 3rem;
 		}
 	}
 }
