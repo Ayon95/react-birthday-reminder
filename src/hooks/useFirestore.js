@@ -25,13 +25,13 @@ function useFirestore(collectionName) {
 				setIsPending(false);
 				if (error) setError(null);
 			} catch (error) {
-				setError(error.message);
+				// setError(error.message);
 				setIsPending(false);
 			}
 		}
 
 		loadData(collectionName);
-	}, [collectionName, currentUser]);
+	}, [collectionName, currentUser, error]);
 
 	return { data, isPending, error };
 }
