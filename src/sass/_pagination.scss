@@ -2,7 +2,6 @@
 
 .pg-buttons {
 	display: flex;
-	gap: 1.3rem;
 
 	&__button {
 		position: relative; /* for positioning its before pseudo-element */
@@ -13,6 +12,10 @@
 		font-size: 1.5rem;
 		font-weight: 500;
 		color: var(--clr-pink-3);
+	}
+
+	&__button:not(:last-child) {
+		margin-right: 1.3rem;
 	}
 
 	&__button:hover {
