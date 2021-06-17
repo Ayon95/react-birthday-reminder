@@ -61,7 +61,6 @@ function FormComponent({ formType, formTitle }) {
 					// const person = await response.json();
 					const response = await db.collection('persons').doc(id).get(); // this will return a doc
 					const person = response.data();
-					console.log('edit effect called');
 
 					formRef.current?.setFieldValue('name', person.name);
 					formRef.current?.setFieldValue('month', person.month);

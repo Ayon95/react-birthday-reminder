@@ -3,12 +3,26 @@
 	width: 2rem;
 	fill: var(--clr-pink-3);
 
-	&--action {
-		cursor: pointer;
-		justify-self: end;
+	&__actions {
+		grid-column: 1 / -1;
+		display: flex;
+		justify-content: space-between;
 
-		&:hover {
-			fill: var(--clr-pink-2);
+		& > * {
+			cursor: pointer;
+			transition: transform 0.2s;
 		}
+
+		& > *:hover {
+			transform: scale(1.2);
+		}
+	}
+
+	&--edit {
+		fill: rgb(189, 189, 189);
+	}
+
+	&--delete {
+		fill: var(--clr-red-2);
 	}
 }
