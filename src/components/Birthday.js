@@ -17,9 +17,9 @@ function Birthday({ person, addedFunctionality, handleDelete }) {
 
 					<div className="icon__actions">
 						<Link to={`/edit-birthday/${person.id}`}>
-							<IconEdit className="icon icon--edit" />
+							<IconEdit className="icon--action icon--edit" />
 						</Link>
-						<IconDelete className="icon icon--delete" onClick={() => handleDelete(person.id)} />
+						<IconDelete className="icon--action icon--delete" onClick={() => handleDelete(person.id)} />
 					</div>
 				</div>
 			) : (

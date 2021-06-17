@@ -3,10 +3,16 @@
 	width: 2rem;
 	fill: var(--clr-pink-3);
 
+	&--action {
+		height: 2.3rem;
+		width: 2.3rem;
+	}
+
 	&__actions {
 		grid-column: 1 / -1;
 		display: flex;
 		justify-content: space-between;
+		margin-top: 2rem;
 
 		& > * {
 			cursor: pointer;
