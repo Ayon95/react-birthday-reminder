@@ -21,7 +21,7 @@ function NavLinks({ handleLogout }) {
 						key={link.title}
 						title={link.title}
 						path={link.path}
-						{...(link.title === 'Log Out' && { handleClick: handleLogout })}
+						{...(link.title === 'Log Out' && { onClick: handleLogout })}
 					>
 						{link.title === 'Upcoming' && peopleUpcomingBirthdays?.length > 0 && (
 							<span className="notification">{peopleUpcomingBirthdays.length}</span>

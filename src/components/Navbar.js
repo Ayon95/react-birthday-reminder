@@ -15,6 +15,7 @@ function Navbar() {
 			alert(error);
 		}
 	}
+
 	return (
 		<nav className="navbar">
 			<h1>{currentUserDoc ? `Hello, ${currentUserDoc.username}` : 'Birthday Reminder'}</h1>
