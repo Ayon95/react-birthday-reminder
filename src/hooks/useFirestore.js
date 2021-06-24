@@ -12,6 +12,7 @@ function useFirestore(collectionName) {
 	useEffect(() => {
 		async function loadData(collectionName) {
 			try {
+				setError(null);
 				// destructuring docs from query snapshot of the database; get the docs with userId equal to the logged-in user's id
 				const { docs } = await db
 					.collection(collectionName)
@@ -23,9 +24,8 @@ function useFirestore(collectionName) {
 				// setting data
 				setData(data);
 				setIsPending(false);
-				if (error) setError(null);
 			} catch (error) {
-				// setError(error.message);
+				setError('Failed to fetch data');
 				setIsPending(false);
 			}
 		}
