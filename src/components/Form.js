@@ -3,11 +3,12 @@ import { useHistory, useParams } from 'react-router-dom';
 import { GlobalContext } from '../contexts/GlobalContext.js';
 import { capitalize } from '../helpers.js';
 import { v4 } from 'uuid';
-import { Formik, Form, Field, ErrorMessage } from 'formik';
+import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
 import { AuthContext } from '../contexts/AuthContext.js';
 import { db } from '../firebase/firebase.js';
 import formService from '../services/formService.js';
+import FormInput from './FormInput.js';
 
 function FormComponent({ formType, formTitle }) {
 	const { addPerson, editPerson } = useContext(GlobalContext);
@@ -36,18 +37,9 @@ function FormComponent({ formType, formTitle }) {
 		if (formType === 'edit') {
 			(async () => {
 				try {
-					// const response = await fetch(`http://localhost:8000/people/${id}`);
-					// const person = await response.json();
-					// find the person that the user wants to edit using the person's id
-					const response = await db.collection('persons').doc(id).get(); // this will return a doc
-					const person = response.data();
-
-					formRef.current?.setFieldValue('name', person.name);
-					formRef.current?.setFieldValue('month', person.month);
-					formRef.current?.setFieldValue('date', person.date);
-					formRef.current?.setFieldValue('year', person.year);
+					await formService.populateFields(id, formRef, db);
 				} catch (error) {
-					setError('Network error. Please try again later.');
+					setError(error.message);
 				}
 			})();
 		}
@@ -109,51 +101,45 @@ function FormComponent({ formType, formTitle }) {
 				<div className="form-container">
 					<h3 className="container__title form-container__title">{formTitle}</h3>
 					<Form className="form" autoComplete="off">
-						<label className="form__label">Name*</label>
-						<Field
+						<FormInput
+							label="Name*"
 							type="text"
-							className={`form__input ${formik.touched.name && formik.errors.name && 'form__input--invalid'}`}
-							name="name"
+							inputName="name"
+							isTouched={formik.touched.name}
+							isInvalid={formik.errors.name}
 							innerRef={nameInputRef}
 						/>
-						<ErrorMessage component="p" className="form__validation-error-message" name="name" />
 
-						<label className="form__label">Month*</label>
-						<Field
+						<FormInput
+							label="Month*"
 							type="text"
-							className={`form__input ${formik.touched.month && formik.errors.month && 'form__input--invalid'}`}
-							name="month"
+							inputName="month"
+							isTouched={formik.touched.month}
+							isInvalid={formik.errors.month}
 							placeholder="e.g. Jan"
 						/>
-						<ErrorMessage component="p" className="form__validation-error-message" name="month" />
 
-						<label className="form__label">Date*</label>
-						<Field
+						<FormInput
+							label="Date*"
 							type="text"
-							className={`form__input ${formik.touched.date && formik.errors.date && 'form__input--invalid'}`}
-							name="date"
+							inputName="date"
+							isTouched={formik.touched.date}
+							isInvalid={formik.errors.date}
 							placeholder="e.g. 14"
 						/>
-						<ErrorMessage component="p" className="form__validation-error-message" name="date" />
 
-						<label className="form__label">Year</label>
-						<Field
+						<FormInput
+							label="Year"
 							type="text"
-							className={`form__input ${formik.touched.year && formik.errors.year && 'form__input--invalid'}`}
-							name="year"
+							inputName="year"
+							isTouched={formik.touched.year}
+							isInvalid={formik.errors.year}
 							placeholder="e.g. 1996"
 						/>
-						<ErrorMessage component="p" className="form__validation-error-message" name="year" />
 
-						{addingBirthday ? (
-							<button disabled className="btn">
-								Adding Birthday
-							</button>
-						) : (
-							<button type="submit" className="btn">
-								Submit
-							</button>
-						)}
+						<button type="submit" className="btn" disabled={addingBirthday}>
+							{addingBirthday ? 'Adding Birthday' : 'Submit'}
+						</button>
 
 						{error && <p className="message message--error">{error}</p>}
 					</Form>

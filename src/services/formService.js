@@ -24,6 +24,22 @@ const schemaObject = {
 		.max(new Date().getFullYear(), 'Year cannot be greater than the current year'),
 };
 
-const formService = { schemaObject };
+// function that fetches person doc from database and populates form fields with that person's information
+async function populateFields(id, formRef, db) {
+	try {
+		// find the person that the user wants to edit using the person's id
+		const response = await db.collection('persons').doc(id).get(); // this will return a doc
+		const person = response.data();
+
+		formRef.current?.setFieldValue('name', person.name);
+		formRef.current?.setFieldValue('month', person.month);
+		formRef.current?.setFieldValue('date', person.date);
+		formRef.current?.setFieldValue('year', person.year);
+	} catch {
+		throw new Error('Network error. Please try again later.');
+	}
+}
+
+const formService = { schemaObject, populateFields };
 
 export default formService;
