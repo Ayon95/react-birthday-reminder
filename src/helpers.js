@@ -1,3 +1,4 @@
+// no longer need this - using useLocation instead
 export function manageActiveLinkStyling() {
 	const allLinks = [...document.querySelectorAll('.navbar__link')];
 	// find the link that contains current-link class, and remove the class from that link
