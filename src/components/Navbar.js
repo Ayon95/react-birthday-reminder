@@ -28,7 +28,7 @@ function Navbar() {
 		<nav className="navbar">
 			<h1>{currentUserDoc ? `Hello, ${currentUserDoc.username}` : 'Birthday Reminder'}</h1>
 			<div className="navbar__links">
-				{currentUser ? (
+				{currentUser && (
 					<>
 						<Link className="navbar__link current-link" to="/">
 							Home
@@ -36,9 +36,7 @@ function Navbar() {
 
 						<Link className="navbar__link" to="/upcoming-birthdays">
 							Upcoming
-							{peopleUpcomingBirthdays?.length === 0 ? (
-								''
-							) : (
+							{peopleUpcomingBirthdays?.length > 0 && (
 								<span className="notification">{peopleUpcomingBirthdays?.length}</span>
 							)}
 						</Link>
@@ -54,15 +52,11 @@ function Navbar() {
 						<Link className="navbar__link" to="/add-birthday">
 							Add
 						</Link>
-					</>
-				) : (
-					''
-				)}
 
-				{currentUser && (
-					<Link className="navbar__link" to="/signup" onClick={handleLogout}>
-						Log Out
-					</Link>
+						<Link className="navbar__link" to="/signup" onClick={handleLogout}>
+							Log Out
+						</Link>
+					</>
 				)}
 			</div>
 		</nav>
