@@ -7,29 +7,22 @@ import { Link } from 'react-router-dom';
 function Birthday({ person, addedFunctionality, handleDelete }) {
 	return (
 		<>
-			{addedFunctionality ? (
-				<div className="person">
-					<IconPerson className="icon" />
-					<h4 className="person__name">{person.name}</h4>
+			<div className="person">
+				<IconPerson className="icon" />
+				<h4 className="person__name">{person.name}</h4>
 
-					<IconCake className="icon" />
-					<p className="person__birthday">{`${person.month} ${person.date}${person.year ? ', ' + person.year : ''}`}</p>
+				<IconCake className="icon" />
+				<p className="person__birthday">{`${person.month} ${person.date}${person.year && ', ' + person.year}`}</p>
 
+				{addedFunctionality && (
 					<div className="icon__actions">
 						<Link to={`/edit-birthday/${person.id}`}>
 							<IconEdit className="icon--action icon--edit" />
 						</Link>
 						<IconDelete className="icon--action icon--delete" onClick={() => handleDelete(person.id)} />
 					</div>
-				</div>
-			) : (
-				<div key={person.id} className="person">
-					<IconPerson className="icon" />
-					<h4 className="person__name">{person.name}</h4>
-					<IconCake className="icon" />
-					<p className="person__birthday">{`${person.month} ${person.date}${person.year ? ', ' + person.year : ''}`}</p>
-				</div>
-			)}
+				)}
+			</div>
 		</>
 	);
 }
