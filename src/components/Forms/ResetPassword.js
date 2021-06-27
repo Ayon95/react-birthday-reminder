@@ -3,6 +3,7 @@ import { AuthContext } from '../../contexts/AuthContext';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { Link } from 'react-router-dom';
 import * as Yup from 'yup';
+import FormInput from './FormInput';
 
 function ResetPassword() {
 	const [error, setError] = useState(null);
@@ -47,25 +48,19 @@ function ResetPassword() {
 				<div className="form-container">
 					<h3 className="container__title form-container__title">Reset Password</h3>
 					<Form className="form" autoComplete="off" noValidate>
-						<label className="form__label">Email</label>
-						<Field
+						<FormInput
+							label="Email"
 							type="email"
-							className={`form__input ${formik.touched.email && formik.errors.email && 'form__input--invalid'}`}
-							name="email"
+							inputName="email"
+							isTouched={formik.touched.email}
+							isInvalid={formik.errors.email}
 							innerRef={emailInputRef}
 							placeholder="Enter email"
 						/>
-						<ErrorMessage component="p" className="form__validation-error-message" name="email" />
 
-						{sendingRequest ? (
-							<button disabled className="btn">
-								Sending request
-							</button>
-						) : (
-							<button type="submit" className="btn">
-								Reset Password
-							</button>
-						)}
+						<button className="btn" type="submit" disabled={sendingRequest}>
+							{sendingRequest ? 'Sending Request' : 'Reset Password'}
+						</button>
 
 						{message && <p className="message message--success">{message}</p>}
 						{error && <p className="message message--error">{error}</p>}

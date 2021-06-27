@@ -3,6 +3,7 @@ import { Link, useHistory } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthContext.js';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
+import FormInput from './FormInput.js';
 
 function Login() {
 	const [loggingIn, setLoggingIn] = useState(false);
@@ -52,34 +53,28 @@ function Login() {
 				<div className="form-container">
 					<h3 className="container__title form-container__title">Log In</h3>
 					<Form className="form" autoComplete="off" noValidate>
-						<label className="form__label">Email</label>
-						<Field
+						<FormInput
+							label="Email"
 							type="email"
-							className={`form__input ${formik.touched.email && formik.errors.email && 'form__input--invalid'}`}
-							name="email"
+							inputName="email"
+							isTouched={formik.touched.email}
+							isInvalid={formik.errors.email}
 							innerRef={emailInputRef}
 							placeholder="Enter email"
 						/>
-						<ErrorMessage component="p" className="form__validation-error-message" name="email" />
 
-						<label className="form__label">Password</label>
-						<Field
+						<FormInput
+							label="Password"
 							type="password"
-							className={`form__input ${formik.touched.password && formik.errors.password && 'form__input--invalid'}`}
-							name="password"
+							inputName="password"
+							isTouched={formik.touched.password}
+							isInvalid={formik.errors.password}
 							placeholder="Enter password"
 						/>
-						<ErrorMessage component="p" className="form__validation-error-message" name="password" />
 
-						{loggingIn ? (
-							<button disabled className="btn">
-								Logging in
-							</button>
-						) : (
-							<button type="submit" className="btn">
-								Log In
-							</button>
-						)}
+						<button className="btn" type="submit" disabled={loggingIn}>
+							{loggingIn ? 'Logging In' : 'Log In'}
+						</button>
 
 						{error && <p className="message message--error">{error}</p>}
 					</Form>

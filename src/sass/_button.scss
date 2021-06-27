@@ -8,6 +8,8 @@
 	letter-spacing: var(--spacing);
 	border-radius: var(--radius);
 	cursor: pointer;
+	border-radius: 4px;
+	transition: background-color 0.2s;
 
 	&:hover {
 		background-color: var(--clr-grey-7);

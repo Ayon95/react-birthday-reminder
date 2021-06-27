@@ -34,7 +34,7 @@ Variables
 $bp-large: 1000px;
 $bp-big-desk: 1800px;
 $bp-medium: 700px;
-$bp-small: 520px;
+$bp-small: 560px;
 $bp-smallest: 370px;
 
 // MEDIA QUERY MANAGER
@@ -68,11 +68,11 @@ html {
 	font-size: 62.5%;
 
 	@include respond-max($bp-medium) {
-		font-size: 56%;
+		font-size: 50%;
 	}
 
 	@include respond-max($bp-small) {
-		font-size: 50%;
+		font-size: 47%;
 	}
 
 	@include respond-max($bp-smallest) {
@@ -89,7 +89,7 @@ body {
 	font-family: 'Quicksand';
 	color: var(--clr-grey-9);
 	line-height: 1.5;
-	background-color: #eee;
+	background-color: var(--clr-grey-1);
 }
 ul {
 	list-style-type: none;
