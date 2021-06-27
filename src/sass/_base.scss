@@ -33,7 +33,7 @@ Variables
 // BREAKPOINTS
 $bp-large: 1000px;
 $bp-big-desk: 1800px;
-$bp-medium: 700px;
+$bp-medium: 750px;
 $bp-small: 560px;
 $bp-smallest: 370px;
 
@@ -67,7 +67,7 @@ Global Styles
 html {
 	font-size: 62.5%;
 
-	@include respond-max($bp-medium) {
+	@include respond-max($bp-large) {
 		font-size: 50%;
 	}
 

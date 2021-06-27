@@ -11,16 +11,21 @@ const links = [
 	{ title: 'Log Out', path: '/login' },
 ];
 
-function NavLinks({ handleLogout }) {
+function NavLinks({ handleLogout, menuIsOpen, closeMenu }) {
 	const { peopleUpcomingBirthdays } = useContext(GlobalContext);
+
+	function insertStylesToOpenMenu() {
+		return { transform: 'translateX(0)', opacity: 1 };
+	}
 	return (
-		<>
+		<div className="navbar__links" style={menuIsOpen ? insertStylesToOpenMenu() : null}>
 			{links.map((link) => {
 				return (
 					<NavLink
 						key={link.title}
 						title={link.title}
 						path={link.path}
+						onClick={closeMenu}
 						{...(link.title === 'Log Out' && { onClick: handleLogout })}
 					>
 						{link.title === 'Upcoming' && peopleUpcomingBirthdays?.length > 0 && (
@@ -29,7 +34,7 @@ function NavLinks({ handleLogout }) {
 					</NavLink>
 				);
 			})}
-		</>
+		</div>
 	);
 }
 
