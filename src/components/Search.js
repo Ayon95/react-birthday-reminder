@@ -1,7 +1,7 @@
 import { useRef, useState, useEffect, useContext } from 'react';
 import { ReactComponent as IconSearch } from '../img/magnifying-glass.svg';
 import { GlobalContext } from '../contexts/GlobalContext.js';
-import Birthday from './Birthday';
+import Birthday from './Birthdays/Birthday';
 
 function Search() {
 	const { people, handleDelete } = useContext(GlobalContext);

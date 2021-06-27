@@ -1,8 +1,8 @@
 import AllBirthdaysList from './AllBirthdaysList.js';
-import Pagination from './Pagination.js';
+import Pagination from '../Pagination.js';
 import { useState, useContext } from 'react';
-import { ReactComponent as LoadingSpinner } from '../img/reload.svg';
-import { GlobalContext } from '../contexts/GlobalContext.js';
+import { ReactComponent as LoadingSpinner } from '../../img/reload.svg';
+import { GlobalContext } from '../../contexts/GlobalContext';
 
 function AllBirthdays() {
 	// loading data

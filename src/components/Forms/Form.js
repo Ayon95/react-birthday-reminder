@@ -1,13 +1,13 @@
 import { useState, useEffect, useRef, useContext } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
-import { GlobalContext } from '../contexts/GlobalContext.js';
-import { capitalize } from '../helpers.js';
+import { GlobalContext } from '../../contexts/GlobalContext.js';
+import { capitalize } from '../../helpers.js';
 import { v4 } from 'uuid';
 import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
-import { AuthContext } from '../contexts/AuthContext.js';
-import { db } from '../firebase/firebase.js';
-import formService from '../services/formService.js';
+import { AuthContext } from '../../contexts/AuthContext.js';
+import { db } from '../../firebase/firebase.js';
+import formService from '../../services/formService.js';
 import FormInput from './FormInput.js';
 
 function FormComponent({ formType, formTitle }) {

@@ -1,4 +1,4 @@
-import BirthdaysTodayList from './BirthdaysTodayList';
+import BirthdaysTodayList from './Birthdays/BirthdaysTodayList';
 import { ReactComponent as LoadingSpinner } from '../img/reload.svg';
 import { GlobalContext } from '../contexts/GlobalContext.js';
 import { useContext } from 'react';

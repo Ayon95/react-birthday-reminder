@@ -1,7 +1,7 @@
-import { ReactComponent as IconPerson } from '../img/user.svg';
-import { ReactComponent as IconCake } from '../img/birthday-cake.svg';
-import { ReactComponent as IconDelete } from '../img/rubbish-bin.svg';
-import { ReactComponent as IconEdit } from '../img/edit.svg';
+import { ReactComponent as IconPerson } from '../../img/user.svg';
+import { ReactComponent as IconCake } from '../../img/birthday-cake.svg';
+import { ReactComponent as IconDelete } from '../../img/rubbish-bin.svg';
+import { ReactComponent as IconEdit } from '../../img/edit.svg';
 import { Link } from 'react-router-dom';
 
 function Birthday({ person, addedFunctionality, handleDelete }) {

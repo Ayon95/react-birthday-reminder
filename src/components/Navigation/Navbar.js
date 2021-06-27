@@ -1,5 +1,5 @@
 import { useContext, useState } from 'react';
-import { AuthContext } from '../contexts/AuthContext.js';
+import { AuthContext } from '../../contexts/AuthContext.js';
 import NavLinks from './NavLinks';
 
 function Navbar() {

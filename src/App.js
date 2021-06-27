@@ -1,17 +1,17 @@
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import Navbar from './components/Navbar.js';
+import Navbar from './components/Navigation/Navbar.js';
 import Home from './components/Home.js';
-import FormComponent from './components/Form.js';
-import AllBirthdays from './components/AllBirthdays.js';
-import UpcomingBirthdays from './components/UpcomingBirthdays.js';
+import FormComponent from './components/Forms/Form.js';
+import AllBirthdays from './components/Birthdays/AllBirthdays.js';
+import UpcomingBirthdays from './components/Birthdays/UpcomingBirthdays.js';
 import Search from './components/Search.js';
 import PageNotFound from './components/PageNotFound.js';
 import GlobalContextProvider from './contexts/GlobalContext.js';
 import AuthContextProvider from './contexts/AuthContext.js';
-import Signup from './components/Signup.js';
-import Login from './components/Login.js';
+import Signup from './components/Forms/Signup.js';
+import Login from './components/Forms/Login.js';
 import ProtectedRoute from './components/ProtectedRoute.js';
-import ResetPassword from './components/ResetPassword.js';
+import ResetPassword from './components/Forms/ResetPassword.js';
 
 function App() {
 	return (

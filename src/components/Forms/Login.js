@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef, useContext } from 'react';
 import { Link, useHistory } from 'react-router-dom';
-import { AuthContext } from '../contexts/AuthContext.js';
+import { AuthContext } from '../../contexts/AuthContext.js';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 
