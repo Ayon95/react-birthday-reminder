@@ -2,7 +2,7 @@ import { useState, useEffect, useRef, useContext } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthContext.js';
 import { Formik, Form } from 'formik';
-import * as Yup from 'yup';
+import formService from '../../services/formService.js';
 import FormInput from './FormInput.js';
 
 function Login() {
@@ -13,11 +13,6 @@ function Login() {
 	const emailInputRef = useRef();
 	const formRef = useRef();
 	const history = useHistory();
-
-	const schema = Yup.object({
-		email: Yup.string().email('Not a valid email').required('Email is required'),
-		password: Yup.string().required('Password is required'),
-	});
 
 	useEffect(() => {
 		emailInputRef.current.focus();
@@ -43,7 +38,7 @@ function Login() {
 				password: '',
 				passwordConfirm: '',
 			}}
-			validationSchema={schema}
+			validationSchema={formService.loginFormSchema}
 			onSubmit={handleSubmit}
 			innerRef={formRef}
 			validateOnBlur={false}

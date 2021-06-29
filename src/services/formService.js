@@ -24,6 +24,27 @@ const schemaObject = {
 		.max(new Date().getFullYear(), 'Year cannot be greater than the current year'),
 };
 
+// login form schema
+const loginFormSchema = Yup.object({
+	email: Yup.string().email('Not a valid email').required('Email is required'),
+	password: Yup.string().required('Password is required'),
+});
+
+// schema object for signup form
+const signupFormSchema = Yup.object({
+	username: Yup.string()
+		.min(2, 'Username needs to be at least 2 characters long')
+		.max(20, 'Username cannot be more than 20 characters long')
+		.required(),
+	email: Yup.string().email('Not a valid email').required('Email is required'),
+	password: Yup.string()
+		.min(6, 'Password needs to be at least 6 characters long')
+		.required('Password is required'),
+	passwordConfirm: Yup.string()
+		.oneOf([Yup.ref('password'), null], 'Passwords must match')
+		.required('Please confirm your password'),
+});
+
 // function that fetches person doc from database and populates form fields with that person's information
 async function populateFields(id, formRef, db) {
 	try {
@@ -40,6 +61,6 @@ async function populateFields(id, formRef, db) {
 	}
 }
 
-const formService = { schemaObject, populateFields };
+const formService = { schemaObject, populateFields, signupFormSchema, loginFormSchema };
 
 export default formService;
