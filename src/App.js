@@ -36,7 +36,11 @@ function App() {
 								</Route>
 
 								<ProtectedRoute exact path="/" component={Home}></ProtectedRoute>
-								<ProtectedRoute exact path="/all-birthdays" component={AllBirthdays}></ProtectedRoute>
+								<ProtectedRoute
+									exact
+									path="/all-birthdays"
+									component={AllBirthdays}
+								></ProtectedRoute>
 
 								<ProtectedRoute
 									exact
@@ -53,7 +57,11 @@ function App() {
 								></ProtectedRoute>
 
 								<ProtectedRoute exact path="/search" component={Search}></ProtectedRoute>
-								<ProtectedRoute exact path="/upcoming-birthdays" component={UpcomingBirthdays}></ProtectedRoute>
+								<ProtectedRoute
+									exact
+									path="/upcoming-birthdays"
+									component={UpcomingBirthdays}
+								></ProtectedRoute>
 
 								<Route path="*">
 									<PageNotFound />

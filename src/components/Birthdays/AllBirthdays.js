@@ -1,8 +1,8 @@
 import AllBirthdaysList from './AllBirthdaysList.js';
 import Pagination from '../Pagination.js';
 import { useState, useContext } from 'react';
-import { ReactComponent as LoadingSpinner } from '../../img/reload.svg';
 import { GlobalContext } from '../../contexts/GlobalContext';
+import LoadingSpinner from '../LoadingSpinner.js';
 
 function AllBirthdays() {
 	// loading data
@@ -35,10 +35,15 @@ function AllBirthdays() {
 			{people && (
 				<>
 					<h3 className="container__title">
-						You have {people.length === 0 ? 'No' : people.length} birthday{people.length === 1 ? '' : 's'} saved
+						You have {people.length === 0 ? 'No' : people.length} birthday
+						{people.length === 1 ? '' : 's'} saved
 					</h3>
 					<AllBirthdaysList currentPeople={currentPeople} handleDelete={handleDelete} />
-					<Pagination peoplePerPage={peoplePerPage} totalNumPeople={people.length} paginate={paginate} />
+					<Pagination
+						peoplePerPage={peoplePerPage}
+						totalNumPeople={people.length}
+						paginate={paginate}
+					/>
 				</>
 			)}
 		</div>

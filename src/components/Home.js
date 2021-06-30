@@ -1,5 +1,5 @@
 import BirthdaysTodayList from './Birthdays/BirthdaysTodayList';
-import { ReactComponent as LoadingSpinner } from '../img/reload.svg';
+import LoadingSpinner from './LoadingSpinner';
 import { GlobalContext } from '../contexts/GlobalContext.js';
 import { useContext } from 'react';
 
@@ -9,11 +9,7 @@ function Home() {
 	return (
 		<div className="container">
 			{error && <p className="message message--error">{error}</p>}
-			{isPending && (
-				<div className="spinner-container">
-					<LoadingSpinner className="icon-spinner" />
-				</div>
-			)}
+			{isPending && <LoadingSpinner />}
 			{peopleBirthdaysToday && <BirthdaysTodayList peopleBirthdaysToday={peopleBirthdaysToday} />}
 		</div>
 	);
