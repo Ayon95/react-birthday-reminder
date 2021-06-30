@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { GlobalContext } from '../../contexts/GlobalContext';
-import NavLink from './NavLink';
+import NavigationLink from './NavigationLink';
 
 const links = [
 	{ title: 'Home', path: '/' },
@@ -21,17 +21,16 @@ function NavLinks({ handleLogout, menuIsOpen, closeMenu }) {
 		<div className="navbar__links" style={menuIsOpen ? insertStylesToOpenMenu() : null}>
 			{links.map((link) => {
 				return (
-					<NavLink
+					<NavigationLink
 						key={link.title}
 						title={link.title}
 						path={link.path}
-						onClick={closeMenu}
-						{...(link.title === 'Log Out' && { onClick: handleLogout })}
+						handleClick={link.title === 'Log Out' ? handleLogout : closeMenu}
 					>
 						{link.title === 'Upcoming' && peopleUpcomingBirthdays?.length > 0 && (
 							<span className="notification">{peopleUpcomingBirthdays.length}</span>
 						)}
-					</NavLink>
+					</NavigationLink>
 				);
 			})}
 		</div>
