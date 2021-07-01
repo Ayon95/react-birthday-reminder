@@ -6,7 +6,7 @@ import LoadingSpinner from '../LoadingSpinner.js';
 
 function AllBirthdays() {
 	// loading data
-	const { people, isPending, error, handleDelete } = useContext(GlobalContext);
+	const { people, isPending, error } = useContext(GlobalContext);
 	// state variables
 	const [currentPage, setCurrentPage] = useState(1);
 	const [peoplePerPage] = useState(8);
@@ -38,7 +38,7 @@ function AllBirthdays() {
 						You have {people.length === 0 ? 'No' : people.length} birthday
 						{people.length === 1 ? '' : 's'} saved
 					</h3>
-					<AllBirthdaysList currentPeople={currentPeople} handleDelete={handleDelete} />
+					<AllBirthdaysList currentPeople={currentPeople} />
 					<Pagination
 						peoplePerPage={peoplePerPage}
 						totalNumPeople={people.length}

@@ -5,7 +5,7 @@
 }
 
 .searchbar {
-	width: #{'min(85vw, 600px)'}; // need to use string interpolation for the min() and max() functions to work in sass
+	width: #{'min(90vw, 50rem)'}; // need to use string interpolation for the min() and max() functions to work in sass
 	padding: 1.5rem 2.5rem;
 	border: none;
 	border-radius: 3rem;
@@ -13,7 +13,7 @@
 	font-size: 2rem;
 	color: var(--clr-pink-3);
 	background-color: var(--clr-grey-8);
-	margin: 2rem -4.5rem 0 -2rem;
+	margin: 2rem 0;
 
 	&::placeholder {
 		color: var(--clr-grey-3);
@@ -27,5 +27,6 @@
 
 .icon--searchbar {
 	position: absolute;
-	top: 3.5rem;
+	top: 3.8rem;
+	right: 2.5rem;
 }

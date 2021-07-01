@@ -3,7 +3,9 @@
 	border: none;
 	background-color: var(--clr-grey-8);
 	margin-top: 1.5rem;
-	font-size: 1.8rem;
+	font-size: 2rem;
+	font-family: 'Quicksand';
+	font-weight: bold;
 	padding: 1.5rem 2rem;
 	letter-spacing: var(--spacing);
 	border-radius: var(--radius);
@@ -17,5 +19,9 @@
 
 	&:active {
 		background-color: var(--clr-grey-8);
+	}
+
+	&:disabled {
+		cursor: not-allowed;
 	}
 }

@@ -11,7 +11,7 @@ import formService from '../../services/formService.js';
 import FormInput from './FormInput.js';
 
 function FormComponent({ formType, formTitle }) {
-	const { addPerson, editPerson } = useContext(GlobalContext);
+	const { people, addPerson, editPerson } = useContext(GlobalContext);
 	const { id } = useParams();
 	const { currentUser } = useContext(AuthContext);
 
@@ -34,17 +34,8 @@ function FormComponent({ formType, formTitle }) {
 
 	// need to load data and fill the input fields with existing data when this component is rendered (when the user wants to edit a birthday)
 	useEffect(() => {
-		if (formType === 'edit') {
-			(async () => {
-				try {
-					await formService.populateFields(id, formRef, db);
-				} catch (error) {
-					setError(error.message);
-				}
-			})();
-		}
-		return null;
-	}, [formType, id]);
+		if (formType === 'edit') formService.populateFields(id, people, formRef);
+	}, [formType, id, people]);
 
 	async function handleSubmit() {
 		try {
@@ -95,7 +86,7 @@ function FormComponent({ formType, formTitle }) {
 			onSubmit={handleSubmit}
 			validationSchema={schema}
 			innerRef={formRef}
-			validateOnBlur={false}
+			validateOnBlur={true}
 		>
 			{(formik) => (
 				<div className="form-container">

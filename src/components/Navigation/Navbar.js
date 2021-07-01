@@ -31,12 +31,12 @@ function Navbar() {
 		<nav className="navbar">
 			<h2>{currentUserDoc ? `Hello, ${currentUserDoc.username}` : 'Birthday Reminder'}</h2>
 			{currentUser && (
-				<NavLinks handleLogout={handleLogout} menuIsOpen={menuIsOpen} closeMenu={closeMenu} />
-			)}
-			{currentUser && (
-				<button className="navbar__hamburger-btn" onClick={toggleMenu}>
-					{menuIsOpen ? <FaTimes /> : <FaBars />}
-				</button>
+				<>
+					<NavLinks handleLogout={handleLogout} menuIsOpen={menuIsOpen} closeMenu={closeMenu} />
+					<button className="navbar__hamburger-btn" onClick={toggleMenu}>
+						{menuIsOpen ? <FaTimes /> : <FaBars />}
+					</button>
+				</>
 			)}
 		</nav>
 	);
