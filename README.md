@@ -32,10 +32,10 @@ Open up your command line and clone this repo:
 
 ```bash
 # Clone this repository
-$ git clone https://github.com/rgneville/cv-app
+$ git clone https://github.com/Ayon95/react-birthday-reminder.git
 
 # Go into the repository
-$ cd cv-app
+$ cd react-birthday-reminder
 
 # Remove current origin repository
 $ git remote remove origin
