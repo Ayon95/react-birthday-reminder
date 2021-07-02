@@ -4,6 +4,7 @@ import { AuthContext } from '../../contexts/AuthContext.js';
 import { Formik, Form } from 'formik';
 import formService from '../../services/formService.js';
 import FormInput from './FormInput.js';
+import FormComponent from './FormComponent';
 
 function Login() {
 	const [loggingIn, setLoggingIn] = useState(false);
@@ -44,7 +45,8 @@ function Login() {
 			validateOnBlur={false}
 			validateOnChange={false}
 		>
-			{(formik) => (
+			{/* {(formik) => (
+				
 				<div className="form-container">
 					<h3 className="container__title form-container__title">Log In</h3>
 					<Form className="form" autoComplete="off" noValidate>
@@ -85,7 +87,31 @@ function Login() {
 						</Link>
 					</p>
 				</div>
-			)}
+				
+			)} */}
+			{(formik) => {
+				return (
+					<FormComponent
+						form={formService.loginForm}
+						formik={formik}
+						isSubmitting={loggingIn}
+						error={error}
+						inputRef={emailInputRef}
+					>
+						<p className="form-container__text">
+							<Link className="form-container__link" to="/reset-password">
+								Forgot Password?
+							</Link>
+						</p>
+						<p className="form-container__text">
+							Need an account?{' '}
+							<Link className="form-container__link" to="/signup">
+								Sign Up
+							</Link>
+						</p>
+					</FormComponent>
+				);
+			}}
 		</Formik>
 	);
 }

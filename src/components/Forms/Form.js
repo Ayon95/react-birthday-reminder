@@ -22,9 +22,6 @@ function FormComponent({ formType, formTitle }) {
 	const formRef = useRef();
 	const nameInputRef = useRef(null);
 
-	// schema object for input validation
-	const schema = Yup.object(formService.schemaObject);
-
 	// set focus on the name input whenever formType changes
 	// clear all input fields at the beginning (in case the user goes from the edit form to the add form without editing anything)
 	useEffect(() => {
@@ -84,7 +81,7 @@ function FormComponent({ formType, formTitle }) {
 				year: '',
 			}}
 			onSubmit={handleSubmit}
-			validationSchema={schema}
+			validationSchema={formService.schema}
 			innerRef={formRef}
 			validateOnBlur={true}
 		>

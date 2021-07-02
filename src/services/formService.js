@@ -1,7 +1,78 @@
 import * as Yup from 'yup';
 
-// schema object for form validation
-const schemaObject = {
+// edit form object
+const editForm = {
+	title: 'Edit Birthday',
+
+	formInputs: [
+		{ label: 'Name*', name: 'name', type: 'text' },
+		{ label: 'Month*', name: 'month', type: 'text', placeholder: 'e.g. Jan' },
+		{ label: 'Date*', name: 'date', type: 'text', placeholder: 'e.g. 14' },
+		{ label: 'Year', name: 'year', type: 'text', placeholder: 'e.g. 1996' },
+	],
+
+	buttonTexts: { disabled: 'Editing Birthday', idle: 'Edit Birthday' },
+};
+
+// add form object
+const addForm = {
+	title: 'Add Birthday',
+
+	formInputs: [
+		{ label: 'Name*', name: 'name', type: 'text' },
+		{ label: 'Month*', name: 'month', type: 'text', placeholder: 'e.g. Jan' },
+		{ label: 'Date*', name: 'date', type: 'text', placeholder: 'e.g. 14' },
+		{ label: 'Year', name: 'year', type: 'text', placeholder: 'e.g. 1996' },
+	],
+
+	buttonTexts: { disabled: 'Adding Birthday', idle: 'Add Birthday' },
+};
+
+// login form object
+const loginForm = {
+	title: 'Log In',
+
+	formInputs: [
+		{ label: 'Email', name: 'email', type: 'email' },
+		{ label: 'Password', name: 'password', type: 'password' },
+	],
+
+	buttonTexts: { disabled: 'Logging In', idle: 'Log In' },
+};
+
+// signup form object
+const signupForm = {
+	title: 'Sign Up',
+
+	formInputs: [
+		{ label: 'Username*', name: 'username', type: 'text' },
+		{ label: 'Email*', name: 'email', type: 'email', placeholder: 'e.g. geralt@gmail.com' },
+		{
+			label: 'Password*',
+			name: 'password',
+			type: 'password',
+			placeholder: 'Enter password (at least 6 characters)',
+		},
+		{
+			label: 'Confirm Password*',
+			name: 'passwordConfirm',
+			type: 'password',
+			placeholder: 'Re-enter password',
+		},
+	],
+
+	buttonTexts: { disabled: 'Creating Account', idle: 'Sign Up' },
+};
+
+// reset-password form object
+const resetPasswordForm = {
+	title: 'Reset Password',
+	formInputs: [{ label: 'Email', name: 'email', type: 'email' }],
+	buttonTexts: { disabled: 'Sending Request', idle: 'Reset Password' },
+};
+
+// schema object for Add and Edit form validation
+const schema = Yup.object({
 	name: Yup.string()
 		.required('Name is a required field')
 		.min(2, 'Name needs to be at least 2 characters long')
@@ -22,7 +93,7 @@ const schemaObject = {
 	year: Yup.number()
 		.typeError('Not a valid year')
 		.max(new Date().getFullYear(), 'Year cannot be greater than the current year'),
-};
+});
 
 // login form schema
 const loginFormSchema = Yup.object({
@@ -45,6 +116,11 @@ const signupFormSchema = Yup.object({
 		.required('Please confirm your password'),
 });
 
+// reset-password form schema
+const resetPasswordFormSchema = Yup.object({
+	email: Yup.string().email('Not a valid email').required('Email is required'),
+});
+
 function populateFields(id, people, formRef) {
 	if (!people) return;
 	// find the person that the user wants to edit using the person's id
@@ -57,10 +133,16 @@ function populateFields(id, people, formRef) {
 }
 
 const formService = {
-	schemaObject,
-	populateFields,
+	addForm,
+	editForm,
+	loginForm,
+	signupForm,
+	resetPasswordForm,
+	schema,
 	signupFormSchema,
 	loginFormSchema,
+	resetPasswordFormSchema,
+	populateFields,
 };
 
 export default formService;

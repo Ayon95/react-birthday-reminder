@@ -4,6 +4,7 @@ import { AuthContext } from '../../contexts/AuthContext.js';
 import { Formik, Form } from 'formik';
 import FormInput from './FormInput.js';
 import formService from './../../services/formService';
+import FormComponent from './FormComponent';
 
 function Signup() {
 	const [signingUp, setSigningUp] = useState(false);
@@ -49,7 +50,7 @@ function Signup() {
 			validateOnBlur={false}
 			validateOnChange={false}
 		>
-			{(formik) => (
+			{/* {(formik) => (
 				<div className="form-container">
 					<h3 className="container__title form-container__title">Sign Up</h3>
 					<Form className="form" autoComplete="off" noValidate>
@@ -102,7 +103,26 @@ function Signup() {
 						</Link>
 					</p>
 				</div>
-			)}
+			)} */}
+
+			{(formik) => {
+				return (
+					<FormComponent
+						form={formService.signupForm}
+						formik={formik}
+						isSubmitting={signingUp}
+						error={error}
+						inputRef={usernameInputRef}
+					>
+						<p className="form-container__text">
+							Already have an account?{' '}
+							<Link className="form-container__link" to="/login">
+								Log In
+							</Link>
+						</p>
+					</FormComponent>
+				);
+			}}
 		</Formik>
 	);
 }

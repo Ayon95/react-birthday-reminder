@@ -12,6 +12,8 @@ import Signup from './components/Forms/Signup.js';
 import Login from './components/Forms/Login.js';
 import ProtectedRoute from './components/ProtectedRoute.js';
 import ResetPassword from './components/Forms/ResetPassword.js';
+import EditForm from './components/Forms/EditForm.js';
+import AddForm from './components/Forms/AddForm.js';
 
 function App() {
 	return (
@@ -42,18 +44,26 @@ function App() {
 									component={AllBirthdays}
 								></ProtectedRoute>
 
-								<ProtectedRoute
+								{/* <ProtectedRoute
 									exact
 									path="/add-birthday"
 									data={{ formType: 'add', formTitle: 'Add birthday' }}
 									component={FormComponent}
-								></ProtectedRoute>
+								></ProtectedRoute> */}
 
-								<ProtectedRoute
+								{/* <ProtectedRoute
 									exact
 									path="/edit-birthday/:id"
 									data={{ formType: 'edit', formTitle: 'Edit birthday' }}
 									component={FormComponent}
+								></ProtectedRoute> */}
+
+								<ProtectedRoute exact path="/add-birthday" component={AddForm}></ProtectedRoute>
+
+								<ProtectedRoute
+									exact
+									path="/edit-birthday/:id"
+									component={EditForm}
 								></ProtectedRoute>
 
 								<ProtectedRoute exact path="/search" component={Search}></ProtectedRoute>
