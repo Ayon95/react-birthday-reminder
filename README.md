@@ -28,7 +28,7 @@ Deployed with [netlify](https://netlify.com/).
 
 ## Get started
 
-Open up your command line and clone this repo:
+Open up a terminal and clone this repo:
 
 ```bash
 # Clone this repository
