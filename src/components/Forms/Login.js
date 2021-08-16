@@ -1,9 +1,8 @@
 import { useState, useEffect, useRef, useContext } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthContext.js';
-import { Formik, Form } from 'formik';
+import { Formik } from 'formik';
 import formService from '../../services/formService.js';
-import FormInput from './FormInput.js';
 import FormComponent from './FormComponent';
 
 function Login() {
@@ -45,50 +44,6 @@ function Login() {
 			validateOnBlur={false}
 			validateOnChange={false}
 		>
-			{/* {(formik) => (
-				
-				<div className="form-container">
-					<h3 className="container__title form-container__title">Log In</h3>
-					<Form className="form" autoComplete="off" noValidate>
-						<FormInput
-							label="Email"
-							type="email"
-							inputName="email"
-							isTouched={formik.touched.email}
-							isInvalid={formik.errors.email}
-							innerRef={emailInputRef}
-							placeholder="Enter email"
-						/>
-
-						<FormInput
-							label="Password"
-							type="password"
-							inputName="password"
-							isTouched={formik.touched.password}
-							isInvalid={formik.errors.password}
-							placeholder="Enter password"
-						/>
-
-						<button className="btn" type="submit" disabled={loggingIn}>
-							{loggingIn ? 'Logging In' : 'Log In'}
-						</button>
-
-						{error && <p className="message message--error">{error}</p>}
-					</Form>
-					<p className="form-container__text">
-						<Link className="form-container__link" to="/reset-password">
-							Forgot Password?
-						</Link>
-					</p>
-					<p className="form-container__text">
-						Need an account?{' '}
-						<Link className="form-container__link" to="/signup">
-							Sign Up
-						</Link>
-					</p>
-				</div>
-				
-			)} */}
 			{(formik) => {
 				return (
 					<FormComponent

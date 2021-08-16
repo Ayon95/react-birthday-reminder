@@ -1,8 +1,7 @@
 import { useState, useEffect, useRef, useContext } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthContext.js';
-import { Formik, Form } from 'formik';
-import FormInput from './FormInput.js';
+import { Formik } from 'formik';
 import formService from './../../services/formService';
 import FormComponent from './FormComponent';
 
@@ -50,61 +49,6 @@ function Signup() {
 			validateOnBlur={false}
 			validateOnChange={false}
 		>
-			{/* {(formik) => (
-				<div className="form-container">
-					<h3 className="container__title form-container__title">Sign Up</h3>
-					<Form className="form" autoComplete="off" noValidate>
-						<FormInput
-							label="Username*"
-							type="text"
-							inputName="username"
-							isTouched={formik.touched.username}
-							isInvalid={formik.errors.username}
-							innerRef={usernameInputRef}
-						/>
-
-						<FormInput
-							label="Email*"
-							type="email"
-							inputName="email"
-							isTouched={formik.touched.email}
-							isInvalid={formik.errors.email}
-							placeholder="e.g. geralt@gmail.com"
-						/>
-
-						<FormInput
-							label="Password*"
-							type="password"
-							inputName="password"
-							isTouched={formik.touched.password}
-							isInvalid={formik.errors.password}
-							placeholder="Enter password (at least 6 characters)"
-						/>
-
-						<FormInput
-							label="Confirm Password*"
-							type="password"
-							inputName="passwordConfirm"
-							isTouched={formik.touched.passwordConfirm}
-							isInvalid={formik.errors.passwordConfirm}
-							placeholder="Re-enter password"
-						/>
-
-						<button className="btn" type="submit">
-							{signingUp ? 'Creating account' : 'Sign Up'}
-						</button>
-
-						{error && <p className="message message--error">{error}</p>}
-					</Form>
-					<p className="form-container__text">
-						Already have an account?{' '}
-						<Link className="form-container__link" to="/login">
-							Log In
-						</Link>
-					</p>
-				</div>
-			)} */}
-
 			{(formik) => {
 				return (
 					<FormComponent

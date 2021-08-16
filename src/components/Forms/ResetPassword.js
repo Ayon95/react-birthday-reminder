@@ -1,9 +1,7 @@
 import { useState, useRef, useContext } from 'react';
 import { AuthContext } from '../../contexts/AuthContext';
-import { Formik, Form } from 'formik';
+import { Formik } from 'formik';
 import { Link } from 'react-router-dom';
-import * as Yup from 'yup';
-import FormInput from './FormInput';
 import formService from '../../services/formService';
 import FormComponent from './FormComponent';
 
@@ -42,34 +40,6 @@ function ResetPassword() {
 			validateOnBlur={false}
 			validateOnChange={false}
 		>
-			{/* {(formik) => (
-				<div className="form-container">
-					<h3 className="container__title form-container__title">Reset Password</h3>
-					<Form className="form" autoComplete="off" noValidate>
-						<FormInput
-							label="Email"
-							type="email"
-							inputName="email"
-							isTouched={formik.touched.email}
-							isInvalid={formik.errors.email}
-							innerRef={emailInputRef}
-							placeholder="Enter email"
-						/>
-
-						<button className="btn" type="submit" disabled={sendingRequest}>
-							{sendingRequest ? 'Sending Request' : 'Reset Password'}
-						</button>
-
-						{successMessage && <p className="message message--success">{successMessage}</p>}
-						{error && <p className="message message--error">{error}</p>}
-					</Form>
-					<p className="form-container__text">
-						<Link className="form-container__link" to="/login">
-							Log In
-						</Link>
-					</p>
-				</div>
-			)} */}
 			{(formik) => {
 				return (
 					<FormComponent
