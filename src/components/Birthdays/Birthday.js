@@ -12,14 +12,20 @@ function Birthday({ person, addedFunctionality, handleDelete }) {
 				<h4 className="person__name">{person.name}</h4>
 
 				<IconCake className="icon" />
-				<p className="person__birthday">{`${person.month} ${person.date}${person.year && ', ' + person.year}`}</p>
+				<p className="person__birthday">{`${person.month} ${person.date}${
+					person.year && ', ' + person.year
+				}`}</p>
 
 				{addedFunctionality && (
 					<div className="icon__actions">
 						<Link to={`/edit-birthday/${person.id}`}>
-							<IconEdit className="icon--action icon--edit" />
+							<IconEdit title="Edit" className="icon--action icon--edit" />
 						</Link>
-						<IconDelete className="icon--action icon--delete" onClick={() => handleDelete(person.id)} />
+						<IconDelete
+							title="Delete"
+							className="icon--action icon--delete"
+							onClick={() => handleDelete(person.id)}
+						/>
 					</div>
 				)}
 			</div>
