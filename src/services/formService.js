@@ -81,7 +81,7 @@ const schema = Yup.object({
 
 	month: Yup.string()
 		.required('Month is a required field')
-		.matches(/jan|feb|mar|apr|may|jun|jul|aug|oct|nov|dec/i, 'Not a valid month')
+		.matches(/jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec/i, 'Not a valid month')
 		.max(3, 'Month needs to be in three-letter format'),
 
 	date: Yup.number()
